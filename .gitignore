@@ -1,6 +1,6 @@
 .classpath
 .project
 .settings/
-.idea/workspace.xml
 .idea/*
 target/
+.idea/workspace.xml
