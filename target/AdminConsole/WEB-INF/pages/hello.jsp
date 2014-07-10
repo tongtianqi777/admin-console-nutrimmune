@@ -12,7 +12,7 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>Authorization</legend>
+                <legend>${message}</legend>
                 <form class="form-horizontal" method="post" action='employee/add.htm' name="employeeForm" id="employeeForm">
                     <div class="control-group">
                         <label class="control-label">First Name</label>
