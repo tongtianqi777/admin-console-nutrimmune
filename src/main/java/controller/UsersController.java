@@ -14,7 +14,7 @@ public class UsersController {
     UserDAO dao = new UserDAO();
 
     @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
+    public String showUsers(ModelMap model) {
 
         try {
             model.addAttribute("users", dao.getUsers());

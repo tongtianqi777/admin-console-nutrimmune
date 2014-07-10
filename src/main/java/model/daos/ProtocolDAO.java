@@ -1,15 +1,13 @@
 package model.daos;
 
-import model.beans.ConnectionFactory;
-import model.beans.DbUtil;
-import model.beans.Protocol;
-import model.beans.ProtocolStatus;
+import model.beans.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -155,5 +153,28 @@ public class ProtocolDAO {
 //            protocol.setName(rs.getString("name"));
         }
         return protocol;
+    }
+
+
+    public ArrayList<Protocol> getProtocols() throws SQLException {
+        ResultSet rs = null;
+        Protocol protocol = null;
+
+        ArrayList<Protocol> protocolList = new ArrayList<Protocol>();
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareCall("select * from protocols");
+            preparedStatement.execute();
+            rs = preparedStatement.getResultSet();
+            while (rs.next()) {
+                protocol = convertResultSetToProtocol(rs);
+                protocolList.add(protocol);
+            }
+        } finally {
+            DbUtil.close(rs);
+            DbUtil.close(preparedStatement);
+            DbUtil.close(connection);
+        }
+        return protocolList;
     }
 }

@@ -10,7 +10,7 @@
             <div class="container nav-collapse">
                 <ul class="nav">
                     <li><a href="/">Overview</a></li>
-                    <li><a href="#">Protocols</a></li>
+                    <li><a href="/protocols">Protocols</a></li>
                     <li><a href="/users">Users</a></li>
                     <li><a href="#">Devices</a></li>
                     <li><a href="#">Communities</a></li>
