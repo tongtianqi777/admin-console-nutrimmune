@@ -21,6 +21,6 @@ public class UsersController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "hello";
+        return "login";
     }
 }
