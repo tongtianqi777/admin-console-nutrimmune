@@ -8,9 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Author: shim.
@@ -58,9 +57,9 @@ public class UserDAO {
     }
 
 
-    public List<UserCollabServer> getUsers() throws SQLException {
+    public ArrayList<UserCollabServer> getUsers() throws SQLException {
         ResultSet rs = null;
-        List<UserCollabServer> userList = new ArrayList<UserCollabServer>();
+        ArrayList<UserCollabServer> userList = new ArrayList<UserCollabServer>();
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareCall("select * from users");
