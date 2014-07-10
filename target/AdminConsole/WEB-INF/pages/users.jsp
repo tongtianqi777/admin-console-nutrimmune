@@ -1,25 +1,9 @@
-<<<<<<< HEAD
-<%--
-  Created by IntelliJ IDEA.
-  User: Rix
-  Date: 7/10/14
-  Time: 2:00 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-=======
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html">
     <title>All Users</title>
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap_and_overrides.css" rel="stylesheet" >
@@ -53,6 +37,5 @@
             </div>
         </div>
     </div>
->>>>>>> b9dbd529d1640517afb1a01ecc2c0bc3c81ac14e
 </body>
 </html>

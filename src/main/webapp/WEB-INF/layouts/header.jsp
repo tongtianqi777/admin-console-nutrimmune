@@ -15,7 +15,6 @@
                     <li><a href="#">Devices</a></li>
                     <li><a href="#">Communities</a></li>
                     <li><a href="#">System</a></li>
-
                 </ul>
             </div>
         </div>

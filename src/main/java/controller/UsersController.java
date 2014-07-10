@@ -21,10 +21,7 @@ public class UsersController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-<<<<<<< HEAD
-        return "login";
-=======
+
         return "users";
->>>>>>> b9dbd529d1640517afb1a01ecc2c0bc3c81ac14e
     }
 }
