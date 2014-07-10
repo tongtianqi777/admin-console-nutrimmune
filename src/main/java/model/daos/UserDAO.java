@@ -58,9 +58,9 @@ public class UserDAO {
     }
 
 
-    public List<UserCollabServer> getUsers() throws SQLException {
+    public ArrayList<UserCollabServer> getUsers() throws SQLException {
         ResultSet rs = null;
-        List<UserCollabServer> userList = new ArrayList<UserCollabServer>();
+        ArrayList<UserCollabServer> userList = new ArrayList<UserCollabServer>();
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareCall("select * from users");

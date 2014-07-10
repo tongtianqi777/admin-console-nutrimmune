@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UsersController {
     UserDAO dao = new UserDAO();
 
@@ -17,10 +17,10 @@ public class UsersController {
     public String printWelcome(ModelMap model) {
 
         try {
-            model.addAttribute("users", dao.getUser("sankhasp@cmu.edu").getAddress());
+            model.addAttribute("users", dao.getUsers());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "hello";
+        return "users";
     }
 }
