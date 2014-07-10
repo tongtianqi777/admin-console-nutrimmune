@@ -31,15 +31,15 @@
                 </tr>
                 <c:forEach var="protocol" items="${protocols}">
                     <tr>
+                        <td>${protocol.name}</td>
+                        <td>${protocol.authorName}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>${protocol.timePlayed}</td>
+                        <td>0</td>
+                        <td>0</td>
                         <td>${protocol.status}</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
+                        <td>TBD</td>
                     </tr>
                 </c:forEach>
             </table>

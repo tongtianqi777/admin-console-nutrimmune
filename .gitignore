@@ -1,3 +1,6 @@
-# Created by .gitignore support plugin (hsz.mobi)
+.classpath
+.project
+.settings/
+.idea/workspace.xml
+.idea/*
 target/
-.idea/
