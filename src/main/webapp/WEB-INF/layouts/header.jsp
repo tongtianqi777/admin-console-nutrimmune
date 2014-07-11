@@ -14,7 +14,7 @@
                     <li><a href="/users">Users</a></li>
                     <li><a href="#">Devices</a></li>
                     <li><a href="#">Communities</a></li>
-                    <li><a href="#">System</a></li>
+                    <li><a href="/system">System</a></li>
                 </ul>
             </div>
         </div>
