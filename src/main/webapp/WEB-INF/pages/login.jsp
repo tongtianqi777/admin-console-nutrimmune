@@ -7,16 +7,16 @@
     <title>Authorization</title>
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.css" rel="stylesheet" >
-    <link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet" >
+    <link href="${pageContext.request.contextPath}/resources/login/css/login.css" rel="stylesheet" >
 </head>
 <body>
 <div class="container-fluid">
-    <div class="span9" data-original-title="" title="">
+    <div id="center-area" class="span9" data-original-title="" title="">
         <div class="hero-unit">
             <h1>Nutrimmune</h1>
             <h2>Admin Console</h2>
             <div class="row">
-                <div class="span5">
+                <div class="span4">
                     <form class="form-horizontal">
                         <div class="control-group">
                             <label class="control-label" for="inputEmail">Email</label>
@@ -31,9 +31,10 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn">Sign in</button>
-                            </div>
+                            <a id="forgot-pass" href="#">Forgot your password?</a>
+                        </div>
+                        <div class="control-group">
+                            <button type="submit" id="signin" class="btn btn-primary span4">Sign in</button>
                         </div>
                     </form>
                 </div>

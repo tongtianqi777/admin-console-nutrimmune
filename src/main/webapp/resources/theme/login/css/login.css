@@ -1,3 +1,10 @@
+#center-area {
+    height: 350px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
 .hero-unit {
     padding: 30px;
     font-size: 18px;
@@ -8,6 +15,7 @@
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+    margin-bottom: 0;
 }
 
 .hero-unit h1 {
@@ -20,6 +28,8 @@
 
 .hero-unit h2 {
     font-size: 20px;
+    font-weight: 200;
+    margin-top: 0;
 }
 .form-horizontal .control-label {
     float: left;
@@ -36,5 +46,19 @@
 }
 
 .description {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 50px;
+}
+
+#signin {
+    margin-left: 0;
+}
+
+#forgot-pass {
+    font-size: 14px;
+}
+
+body {
+    background-image: url("/resources/login/img/heart.png");
 }
