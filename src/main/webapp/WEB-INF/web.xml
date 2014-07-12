@@ -25,11 +25,13 @@
         </listener-class>
     </listener>
 
-    <!-- Loads Spring Security config file -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/spring-security.xml
+            <!-- Loads Spring Security config file -->
+            /WEB-INF/spring-security.xml,
+            <!-- Loads Spring Database config file -->
+            /WEB-INF/spring-database.xml
         </param-value>
     </context-param>
 

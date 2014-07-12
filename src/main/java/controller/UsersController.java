@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
 import java.sql.SQLException;
 
 @Controller
@@ -14,7 +15,7 @@ public class UsersController {
     UserDAO dao = new UserDAO();
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showUsers(ModelMap model) {
+    public String showUsers(ModelMap model, Principal principal) {
 
         try {
             model.addAttribute("users", dao.getUsers());

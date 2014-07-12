@@ -24,6 +24,7 @@ public class LoginController {
         }
         model.addObject("security_check_url", SECURITY_CHECK_URL);
         model.setViewName("login");
+
         return model;
 	}
 
