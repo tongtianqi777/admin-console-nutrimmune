@@ -7,7 +7,11 @@
     <title>All Users</title>
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap_and_overrides.css" rel="stylesheet" >
+    <link href="${pageContext.request.contextPath}/resources/tablesorter_theme_blue/style.css" rel="stylesheet" >
 
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-latest.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/users.js"></script>
 </head>
 <body>
     <%@ include file="/WEB-INF/layouts/header.jsp" %>

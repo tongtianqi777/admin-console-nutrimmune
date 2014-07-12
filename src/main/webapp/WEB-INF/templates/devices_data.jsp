@@ -1,20 +1,24 @@
-<table class="table table-striped">
-    <tr>
-        <td>ID</td>
-        <td>Mac Address</td>
-        <td>Owner</td>
-        <td>Manufacture Date</td>
-        <td>Shipping Date</td>
-        <td>Status</td>
-    </tr>
-    <c:forEach var="device" items="${devices}">
+<table id="devices_table" class="tablesorter">
+    <thead>
         <tr>
-            <td>${device.id}</td>
-            <td>${device.mac}</td>
-            <td>${device.owner}</td>
-            <td>${device.manufactureddate}</td>
-            <td>${device.shipdate}</td>
-            <td>${device.status}</td>
+            <th>ID</th>
+            <th>Mac Address</th>
+            <th>Owner</th>
+            <th>Manufacture Date</th>
+            <th>Shipping Date</th>
+            <th>Status</th>
         </tr>
-    </c:forEach>
+    </thead>
+    <tbody>
+        <c:forEach var="device" items="${devices}">
+            <tr>
+                <td>${device.id}</td>
+                <td>${device.mac}</td>
+                <td>${device.owner}</td>
+                <td>${device.manufactureddate}</td>
+                <td>${device.shipdate}</td>
+                <td>${device.status}</td>
+            </tr>
+        </c:forEach>
+    </tbody>
 </table>
