@@ -58,3 +58,9 @@
 #forgot-pass {
     font-size: 14px;
 }
+
+.login-msg {
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #FF3300;
+}

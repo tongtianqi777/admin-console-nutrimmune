@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2599518883">
+  <component name="DataSourceManagerImpl" format="xml" hash="3465493101">
     <data-source source="LOCAL" name="PostgreSQL - nutrimmune@54.198.109.52" uuid="69aa772d-f155-4db6-ab0f-36b78e618671">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://54.198.109.52:5432/nutrimmune</jdbc-url>
       <user-name>postgres</user-name>
