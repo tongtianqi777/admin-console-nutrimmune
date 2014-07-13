@@ -1,6 +1,6 @@
 package controller;
 
-import model.daos.UserDAO;
+import model.daos.ResearcherDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,14 +11,14 @@ import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/users")
-public class UsersController {
-    UserDAO dao = new UserDAO();
+public class UserController {
+    ResearcherDAO dao = new ResearcherDAO();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showUsers(ModelMap model, Principal principal) {
 
         try {
-            model.addAttribute("users", dao.getUsers());
+            model.addAttribute("users", dao.getAllResearchers());
         } catch (SQLException e) {
             e.printStackTrace();
         }

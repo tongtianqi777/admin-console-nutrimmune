@@ -1,7 +1,7 @@
 package model.daos;
 
-import model.beans.ConnectionFactory;
-import model.beans.DbUtil;
+import utils.ConnectionFactory;
+import utils.DbUtil;
 import model.beans.Device;
 
 import java.sql.Connection;
@@ -9,75 +9,95 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
-/**
- * Created by Rix on 7/12/14.
- */
 public class DeviceDAO {
 
 
     private Connection connection;
     private PreparedStatement preparedStatement;
+    private CommunityDAO communityDAO = new CommunityDAO();
 
     public Device getDevice(String mac) throws SQLException {
         ResultSet rs = null;
-        Device device = null;
+        Device d = null;
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareCall("select * from devices where mac=?");
             preparedStatement.setString(1, mac);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
-            device = new Device();
+
             while (rs.next()) {
-                device.setId(rs.getInt("id"));
-                device.setMac(rs.getString("mac"));
-                device.setManufacturedat(rs.getString("manufacturdat"));
-                device.setManufactureddate(rs.getDate("manufactureddate"));
-                device.setOsbuildrev(rs.getString("osbuildrev"));
-                device.setOwner(rs.getString("owner"));
-                device.setShipdate(rs.getDate("shipdate"));
-                device.setStatus(rs.getString("status"));
+                d = parseResult(rs);
             }
+
         } finally {
             DbUtil.close(rs);
             DbUtil.close(preparedStatement);
             DbUtil.close(connection);
         }
-        return device;
+        return d;
+    }
+
+    public Device getDevice (int id) throws SQLException {
+        ResultSet rs = null;
+        Device d = null;
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareCall("select * from devices where id=?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            rs = preparedStatement.getResultSet();
+
+            while (rs.next()) {
+                d = parseResult(rs);
+            }
+
+        } finally {
+            DbUtil.close(rs);
+            DbUtil.close(preparedStatement);
+            DbUtil.close(connection);
+        }
+        return d;
     }
 
 
-    public ArrayList<Device> getDevices() throws SQLException {
+    public ArrayList<Device> getAllDevices() throws SQLException {
         ResultSet rs = null;
         ArrayList<Device> deviceList = new ArrayList<Device>();
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("select * from devices");
+            preparedStatement = connection.prepareCall("select * from device");
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
+
             while (rs.next()) {
-                Device device = new Device();
-
-                device.setId(rs.getInt("id"));
-                device.setMac(rs.getString("mac"));
-                device.setManufacturedat(rs.getString("manufacturdat"));
-                device.setManufactureddate(rs.getDate("manufactureddate"));
-                device.setOsbuildrev(rs.getString("osbuildrev"));
-                device.setOwner(rs.getString("owner"));
-                device.setShipdate(rs.getDate("shipdate"));
-                device.setStatus(rs.getString("status"));
-
-                deviceList.add(device);
+                Device d = parseResult(rs);
+                deviceList.add(d);
             }
+
         } finally {
             DbUtil.close(rs);
             DbUtil.close(preparedStatement);
             DbUtil.close(connection);
         }
         return deviceList;
+    }
+
+    private Device parseResult(ResultSet rs) throws SQLException {
+        Device d = new Device(
+                rs.getInt("id"),
+                rs.getString("mac"),
+                rs.getString("manu_addr"),
+                rs.getDate("manu_date"),
+                rs.getDate("ship_date"),
+                rs.getString("owner_name"),
+                rs.getString("status"),
+                communityDAO.getCommunity(rs.getInt("community"))
+        );
+
+        return d;
     }
 }
 

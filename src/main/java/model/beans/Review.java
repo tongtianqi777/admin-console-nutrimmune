@@ -1,40 +1,43 @@
 package model.beans;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
 
-/**
- * Created by Tianqi Tong on 6/9/14.
- */
 public class Review {
 
-    //Rating: the rating is in a 5 point scale. For example: 4.5 / 5
+    private int id;
+
+    //Rating: the rating is in a 5 point scale. For example: 4 / 5
     private int rating;
 
     //Comment: a comment is a piece of string
     private String comment;
 
-    //ID: the id of the review, which is generated using the current system time in millisecond
-    private String id;
-
-    //Protocol ID: the protocol that this review belongs to
-    private int protocolId;
+    //Protocol: the protocol that this review belongs to
+    private Protocol protocol;
 
     //Author: the author of the review
-    private int author;
+    private Researcher author;
 
     //Date: the date on which the review is created
-    private Calendar date;
+    private Timestamp date;
 
-    public Review() {
-        date = Calendar.getInstance();
-    }
+    public Review() {}
 
-    public Review(int protocolId, String comment, int rating, int author) {
-        this();            //get the date and the id
-        this.protocolId = protocolId;
+    public Review(int id, int rating, String comment, Protocol protocol, Researcher author, Timestamp date) {
+        this.id = id;
         this.rating = rating;
         this.comment = comment;
+        this.protocol = protocol;
         this.author = author;
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRating() {
@@ -53,39 +56,27 @@ public class Review {
         this.comment = comment;
     }
 
-    public String getId() {
-        return id;
+    public Protocol getProtocol() {
+        return protocol;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setProtocol(Protocol protocol) {
+        this.protocol = protocol;
     }
 
-    public int getProtocolId() {
-        return protocolId;
-    }
-
-    public void setProtocolId(int protocolId) {
-        this.protocolId = protocolId;
-    }
-
-    public void setAuthor(int author) {
-        this.author = author;
-    }
-
-    public int getAuthor() {
+    public Researcher getAuthor() {
         return author;
     }
 
-    public void setBy(int author) {
+    public void setAuthor(Researcher author) {
         this.author = author;
     }
 
-    public Calendar getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 }

@@ -1,34 +1,33 @@
 package model.daos;
 
 import model.beans.*;
+import utils.ConnectionFactory;
+import utils.DbUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/**
- * Author: shim.
- * Creation date: 5/30/14.
- */
+
 public class ProtocolDAO {
 
     private Connection connection;
     private PreparedStatement preparedStatement;
+    private ResearcherDAO researcherDAO = new ResearcherDAO();
 
     public Protocol getProtocolById(int id) throws SQLException {
         Protocol protocol = null;
         ResultSet rs = null;
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("select * from protocols where id=?");
+            preparedStatement = connection.prepareCall("select * from protocol where id=?");
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
-            protocol = convertResultSetToProtocol(rs);
+            protocol = parseResultSet(rs);
         }
         finally {
             DbUtil.close(rs);
@@ -42,7 +41,7 @@ public class ProtocolDAO {
     public void uploadProtocol(Protocol prot) throws SQLException {
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("INSERT INTO protocols (id, status, protocol, time_played) VALUES (nextval('protocols_id_seq'),? ,cast(? as json) ,?)");
+            preparedStatement = connection.prepareCall("INSERT INTO protocol (id, status, protocol, time_played) VALUES (nextval('protocols_id_seq'),? ,cast(? as json) ,?)");
             preparedStatement.setString(1, prot.getStatus().toString());
             preparedStatement.setString(2, prot.getSteps());
             preparedStatement.setInt(3, prot.getTimePlayed());
@@ -54,13 +53,13 @@ public class ProtocolDAO {
         }
     }
 
-    public boolean updateProtocolStatus(int protocolId, ProtocolStatus status) throws SQLException {
+    public boolean updateProtocolStatus(int protocolId, String status) throws SQLException {
         try {
             Protocol protocol = getProtocolById(protocolId);
             connection = ConnectionFactory.getConnection();
             if(protocol == null)
                 return false;
-            preparedStatement = connection.prepareCall("UPDATE protocols set status = ? where ID=?");
+            preparedStatement = connection.prepareCall("UPDATE protocol set status = ? where ID=?");
             preparedStatement.setString(1, status.toString());
             preparedStatement.setInt(2, protocol.getId());
             preparedStatement.execute();
@@ -78,7 +77,7 @@ public class ProtocolDAO {
             connection = ConnectionFactory.getConnection();
             if(protocol == null)
                 return false;
-            preparedStatement = connection.prepareCall("UPDATE protocols set time_played = ? where ID=?");
+            preparedStatement = connection.prepareCall("UPDATE protocol set time_played = ? where ID=?");
             preparedStatement.setInt(1, timeToAdd + protocol.getTimePlayed());
             preparedStatement.setInt(2, protocol.getId());
             preparedStatement.execute();
@@ -101,7 +100,7 @@ public class ProtocolDAO {
         ResultSet rs = null;
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("SELECT * FROM PROTOCOLS WHERE" +
+            preparedStatement = connection.prepareCall("SELECT * FROM protocol WHERE" +
                     "  protocol->>'author' like ? or" +
                     "  protocol->>'authorName' like ? or" +
                     "  protocol->>'averageRating' like ? or" +
@@ -123,7 +122,7 @@ public class ProtocolDAO {
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
             while ( rs.next() ) {
-                protocol = convertResultSetToProtocol(rs);
+                protocol = parseResultSet(rs);
                 result.add(protocol);
             }
         }
@@ -135,46 +134,45 @@ public class ProtocolDAO {
         return result;
     }
 
-    private Protocol convertResultSetToProtocol(ResultSet rs) throws SQLException{
-        Protocol protocol = new Protocol();
-        while (rs.next()) {
-            protocol.setId(rs.getInt("id"));
-            protocol.setStatus(ProtocolStatus.valueOf(rs.getString("status").toUpperCase()));
-            protocol.setSteps(rs.getString("protocol"));
-            protocol.setTimePlayed(rs.getInt("time_played"));
-            protocol.setUserId(rs.getInt("user_id"));
-
-            //protocol.setAuthorName(rs.getString("author_name"));
-//            protocol.setAverageRating(rs.getFloat("average_rating"));
-//            protocol.setCreateDate(rs.getDate("creation_date"));
-//            protocol.setDescription(rs.getString("description"));
-//            protocol.setLastModifiedDate(rs.getDate("last_modified_date"));
-//            protocol.setLocation(rs.getString("location"));
-//            protocol.setName(rs.getString("name"));
-        }
-        return protocol;
-    }
-
-
-    public ArrayList<Protocol> getProtocols() throws SQLException {
+    public List<Protocol> getProtocols() throws SQLException {
         ResultSet rs = null;
         Protocol protocol = null;
 
-        ArrayList<Protocol> protocolList = new ArrayList<Protocol>();
+        List<Protocol> protocolList = new ArrayList<Protocol>();
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("select * from protocols");
+            preparedStatement = connection.prepareCall("select * from protocol");
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
+
             while (rs.next()) {
-                protocol = convertResultSetToProtocol(rs);
+                protocol = parseResultSet(rs);
                 protocolList.add(protocol);
             }
+
         } finally {
             DbUtil.close(rs);
             DbUtil.close(preparedStatement);
             DbUtil.close(connection);
         }
         return protocolList;
+    }
+
+    private Protocol parseResultSet(ResultSet rs) throws SQLException{
+        Protocol protocol = null;
+        while (rs.next()) {
+            protocol = new Protocol(
+                    rs.getInt("int"),
+                    researcherDAO.getResearcher(rs.getInt("author")),
+                    rs.getString("name"),
+                    rs.getString("status"),
+                    rs.getString("steps"),
+                    rs.getTimestamp("last_modified"),
+                    rs.getTimestamp("create_time"),
+                    rs.getString("description")
+            );
+
+        }
+        return protocol;
     }
 }

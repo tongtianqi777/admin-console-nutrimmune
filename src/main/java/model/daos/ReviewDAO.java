@@ -4,16 +4,14 @@ import model.beans.Review;
 
 import java.util.List;
 
-/**
- * Created by Tianqi Tong on 6/9/14.
- */
+
 public class ReviewDAO {
 
     public void create(Review review) {
 
     }
 
-    public Review getById(int protocolId, String reviewId) {
+    public Review getById(String reviewId) {
 
         /**
          * to be continued;
@@ -37,7 +35,7 @@ public class ReviewDAO {
         return null;
     }
 
-    public List<Review> getAll(int protocolId) {
+    public List<Review> getByProtocol(int protocolId) {
 
         /**
          * to be continued;

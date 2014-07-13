@@ -30,8 +30,12 @@
         <param-value>
             <!-- Loads Spring Security config file -->
             /WEB-INF/spring-security.xml,
+
             <!-- Loads Spring Database config file -->
-            /WEB-INF/spring-database.xml
+            /WEB-INF/spring-database.xml,
+
+            <!--Other Context-->
+            /WEB-INF/context.xml
         </param-value>
     </context-param>
 

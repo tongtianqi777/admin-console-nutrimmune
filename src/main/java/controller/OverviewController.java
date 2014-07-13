@@ -2,7 +2,7 @@ package controller;
 
 import model.daos.DeviceDAO;
 import model.daos.ProtocolDAO;
-import model.daos.UserDAO;
+import model.daos.ResearcherDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @Controller
 @RequestMapping("/")
 public class OverviewController {
-    UserDAO user_dao = new UserDAO();
+    ResearcherDAO user_dao = new ResearcherDAO();
     ProtocolDAO protocol_dao = new ProtocolDAO();
     DeviceDAO device_dao = new DeviceDAO();
 
@@ -24,9 +24,9 @@ public class OverviewController {
     public String showUsers(ModelMap model) {
 
         try {
-            model.addAttribute("users", user_dao.getUsers());
+            model.addAttribute("users", user_dao.getAllResearchers());
             model.addAttribute("protocols", protocol_dao.getProtocols());
-            model.addAttribute("devices", device_dao.getDevices());
+            model.addAttribute("devices", device_dao.getAllDevices());
 
         } catch (SQLException e) {
             e.printStackTrace();

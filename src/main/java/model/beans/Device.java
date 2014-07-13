@@ -1,35 +1,28 @@
 package model.beans;
 
-import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
-/**
- * Author: Rix
- * Creation date: 7/12/14.
- */
 public class Device {
     private int id;
     private String mac;
-    private String manufacturedat;
-    private Date manufactureddate;
-    private String osbuildrev;
-    private String owner;
-    private Date shipdate;
+    private String manuAddr;
+    private Date manuDate;
+    private Date shipDate;
+    private String ownerName;
     private String status;
+    private Community community;
 
-    public Device() {
-    }
+    public Device() {}
 
-    public Device(int id, String mac, String manufacturedat, Date manufactureddate, String osbuildrev, String owner, Date shipdate, String status) {
+    public Device(int id, String mac, String manuAddr, Date manuDate, Date shipDate, String ownerName, String status, Community community) {
         this.id = id;
         this.mac = mac;
-        this.manufacturedat = manufacturedat;
-        this.manufactureddate = manufactureddate;
-        this.osbuildrev = osbuildrev;
-        this.owner = owner;
-        this.shipdate = shipdate;
+        this.manuAddr = manuAddr;
+        this.manuDate = manuDate;
+        this.shipDate = shipDate;
+        this.ownerName = ownerName;
         this.status = status;
+        this.community = community;
     }
 
     public int getId() {
@@ -40,50 +33,44 @@ public class Device {
         this.id = id;
     }
 
+    public String getMac() {
+        return mac;
+    }
+
     public void setMac(String mac) {
         this.mac = mac;
     }
 
-    public String getMac() { return mac; }
-
-    public String getManufacturedat() {
-        return manufacturedat;
+    public String getManuAddr() {
+        return manuAddr;
     }
 
-    public void setManufacturedat(String manufacturedat) {
-        this.manufacturedat = manufacturedat;
+    public void setManuAddr(String manuAddr) {
+        this.manuAddr = manuAddr;
     }
 
-    public Date getManufactureddate() {
-        return manufactureddate;
+    public Date getManuDate() {
+        return manuDate;
     }
 
-    public void setManufactureddate(Date manufactureddate) {
-        this.manufactureddate = manufactureddate;
+    public void setManuDate(Date manuDate) {
+        this.manuDate = manuDate;
     }
 
-    public String getOsbuildrev() {
-        return osbuildrev;
+    public Date getShipDate() {
+        return shipDate;
     }
 
-    public void setOsbuildrev(String osbuildrev) {
-        this.osbuildrev = osbuildrev;
+    public void setShipDate(Date shipDate) {
+        this.shipDate = shipDate;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getOwnerName() {
+        return ownerName;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public Date getShipdate() {
-        return shipdate;
-    }
-
-    public void setShipdate(Date shipdate) {
-        this.shipdate = shipdate;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
     public String getStatus() {
@@ -92,5 +79,13 @@ public class Device {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 }

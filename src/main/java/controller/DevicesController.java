@@ -21,7 +21,7 @@ public class DevicesController {
     public String showDevices(ModelMap model) {
 
         try {
-            model.addAttribute("devices", dao.getDevices());
+            model.addAttribute("devices", dao.getAllDevices());
         } catch (SQLException e) {
             e.printStackTrace();
         }

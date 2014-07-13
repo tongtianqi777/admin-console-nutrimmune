@@ -1,48 +1,30 @@
 package model.beans;
 
-import java.util.Date;
-
-/**
- * Author: shim.
- * Creation date: 5/30/14.
- */
-
+import java.sql.Timestamp;
 
 public class Protocol {
 
     private int id;
-    private ProtocolStatus status;
-    private int userId;
-    private String steps;
-    private int timePlayed;
-    private String description;
+    private Researcher author;
     private String name;
-    private String location;
-    private float averageRating;
-    private Date lastModifiedDate;
-    private Date createDate;
-    private String authorName;
+    private String status;
+    private String steps;
+    private Timestamp lastModified;
+    private Timestamp createTime;
+    private String description;
+    private int timePlayed;
 
+    public Protocol() {}
 
-
-    public Protocol() {
-    }
-
-    public Protocol(int id, ProtocolStatus status, int userId, String steps, int timePlayed, String description,
-                    String name, String location, int averageRating, Date lastModifiedDate, Date createDate,
-                    String authorName) {
+    public Protocol(int id, Researcher author, String name, String status, String steps, Timestamp lastModified, Timestamp createTime, String description) {
         this.id = id;
-        this.status = status;
-        this.userId = userId;
-        this.steps = steps;
-        this.timePlayed = timePlayed;
-        this.description = description;
+        this.author = author;
         this.name = name;
-        this.location = location;
-        this.averageRating = averageRating;
-        this.lastModifiedDate = lastModifiedDate;
-        this.createDate = createDate;
-        this.authorName = authorName;
+        this.status = status;
+        this.steps = steps;
+        this.lastModified = lastModified;
+        this.createTime = createTime;
+        this.description = description;
     }
 
     public int getId() {
@@ -53,44 +35,12 @@ public class Protocol {
         this.id = id;
     }
 
-    public ProtocolStatus getStatus() {
-        return status;
+    public Researcher getAuthor() {
+        return author;
     }
 
-    public void setStatus(ProtocolStatus status) {
-        this.status = status;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getSteps() {
-        return steps;
-    }
-
-    public void setSteps(String steps) {
-        this.steps = steps;
-    }
-
-    public int getTimePlayed() {
-        return timePlayed;
-    }
-
-    public void setTimePlayed(int timePlayed) {
-        this.timePlayed = timePlayed;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAuthor(Researcher author) {
+        this.author = author;
     }
 
     public String getName() {
@@ -101,43 +51,51 @@ public class Protocol {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getStatus() {
+        return status;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public float getAverageRating() {
-        return averageRating;
+    public String getSteps() {
+        return steps;
     }
 
-    public void setAverageRating(float averageRating) {
-        this.averageRating = averageRating;
+    public void setSteps(String steps) {
+        this.steps = steps;
     }
 
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
+    public Timestamp getLastModified() {
+        return lastModified;
     }
 
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
+    public void setLastModified(Timestamp lastModified) {
+        this.lastModified = lastModified;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Timestamp getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(int timePlayed) {
+        this.timePlayed = timePlayed;
     }
 }
