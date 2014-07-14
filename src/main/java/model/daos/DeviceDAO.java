@@ -23,7 +23,7 @@ public class DeviceDAO {
         Device d = null;
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("select * from devices where mac=?");
+            preparedStatement = connection.prepareCall("select * from device where mac=?");
             preparedStatement.setString(1, mac);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
@@ -45,7 +45,7 @@ public class DeviceDAO {
         Device d = null;
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareCall("select * from devices where id=?");
+            preparedStatement = connection.prepareCall("select * from device where id=?");
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();

@@ -16,7 +16,7 @@ public class ProtocolsController {
     @RequestMapping(method = RequestMethod.GET)
     public String showProtocols(ModelMap model) {
         try {
-            model.addAttribute("protocols", dao.getProtocols());
+            model.addAttribute("protocols", dao.getAllProtocols());
         } catch (SQLException e) {
             e.printStackTrace();
         }

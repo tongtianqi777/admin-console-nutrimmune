@@ -25,7 +25,7 @@ public class OverviewController {
 
         try {
             model.addAttribute("users", user_dao.getAllResearchers());
-            model.addAttribute("protocols", protocol_dao.getProtocols());
+            model.addAttribute("protocols", protocol_dao.getAllProtocols());
             model.addAttribute("devices", device_dao.getAllDevices());
 
         } catch (SQLException e) {

@@ -16,7 +16,7 @@
         <c:forEach var="protocol" items="${protocols}">
             <tr>
                 <td>${protocol.name}</td>
-                <td>${protocol.authorName}</td>
+                <td>${protocol.author.firstname}</td>
                 <td>0</td>
                 <td>0</td>
                 <td>${protocol.timePlayed}</td>

@@ -16,7 +16,7 @@ public class Protocol {
 
     public Protocol() {}
 
-    public Protocol(int id, Researcher author, String name, String status, String steps, Timestamp lastModified, Timestamp createTime, String description) {
+    public Protocol(int id, Researcher author, String name, String status, String steps, Timestamp lastModified, Timestamp createTime, String description, int timePlayed) {
         this.id = id;
         this.author = author;
         this.name = name;
@@ -25,6 +25,7 @@ public class Protocol {
         this.lastModified = lastModified;
         this.createTime = createTime;
         this.description = description;
+        this.timePlayed = timePlayed;
     }
 
     public int getId() {

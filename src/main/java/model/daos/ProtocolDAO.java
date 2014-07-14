@@ -134,7 +134,7 @@ public class ProtocolDAO {
         return result;
     }
 
-    public List<Protocol> getProtocols() throws SQLException {
+    public List<Protocol> getAllProtocols() throws SQLException {
         ResultSet rs = null;
         Protocol protocol = null;
 
@@ -162,14 +162,15 @@ public class ProtocolDAO {
         Protocol protocol = null;
         while (rs.next()) {
             protocol = new Protocol(
-                    rs.getInt("int"),
+                    rs.getInt("id"),
                     researcherDAO.getResearcher(rs.getInt("author")),
                     rs.getString("name"),
                     rs.getString("status"),
                     rs.getString("steps"),
                     rs.getTimestamp("last_modified"),
                     rs.getTimestamp("create_time"),
-                    rs.getString("description")
+                    rs.getString("description"),
+                    rs.getInt("time_played")
             );
 
         }
