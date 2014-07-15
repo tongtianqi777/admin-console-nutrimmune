@@ -136,7 +136,6 @@ public class ProtocolDAO {
 
     public List<Protocol> getAllProtocols() throws SQLException {
         ResultSet rs = null;
-        Protocol protocol = null;
 
         List<Protocol> protocolList = new ArrayList<Protocol>();
         try {
@@ -146,9 +145,11 @@ public class ProtocolDAO {
             rs = preparedStatement.getResultSet();
 
             while (rs.next()) {
-                protocol = parseResultSet(rs);
+                Protocol protocol = parseResultSet(rs);
                 protocolList.add(protocol);
             }
+
+            System.out.println("found " + protocolList.size() + " protocols");
 
         } finally {
             DbUtil.close(rs);
@@ -159,21 +160,18 @@ public class ProtocolDAO {
     }
 
     private Protocol parseResultSet(ResultSet rs) throws SQLException{
-        Protocol protocol = null;
-        while (rs.next()) {
-            protocol = new Protocol(
-                    rs.getInt("id"),
-                    researcherDAO.getResearcher(rs.getInt("author")),
-                    rs.getString("name"),
-                    rs.getString("status"),
-                    rs.getString("steps"),
-                    rs.getTimestamp("last_modified"),
-                    rs.getTimestamp("create_time"),
-                    rs.getString("description"),
-                    rs.getInt("time_played")
-            );
+        Protocol protocol = new Protocol(
+                rs.getInt("id"),
+                researcherDAO.getResearcher(rs.getInt("author")),
+                rs.getString("name"),
+                rs.getString("status"),
+                rs.getString("steps"),
+                rs.getTimestamp("last_modified"),
+                rs.getTimestamp("create_time"),
+                rs.getString("description"),
+                rs.getInt("time_played")
+        );
 
-        }
         return protocol;
     }
 }

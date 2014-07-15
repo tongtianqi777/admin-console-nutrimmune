@@ -17,6 +17,7 @@ public class ProtocolsController {
     public String showProtocols(ModelMap model) {
         try {
             model.addAttribute("protocols", dao.getAllProtocols());
+            model.addAttribute("test", "succ");
         } catch (SQLException e) {
             e.printStackTrace();
         }

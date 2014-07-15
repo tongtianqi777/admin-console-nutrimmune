@@ -17,7 +17,7 @@
             <tr>
                 <td>${protocol.name}</td>
                 <td>${protocol.author.firstname}</td>
-                <td>0</td>
+                <td>${test}</td>
                 <td>0</td>
                 <td>${protocol.timePlayed}</td>
                 <td>0</td>
