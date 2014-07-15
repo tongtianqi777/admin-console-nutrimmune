@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-
 @Controller
 @RequestMapping("/devices")
 public class DevicesController {
@@ -39,6 +38,11 @@ public class DevicesController {
         String fileName = "devices.csv";
 
         response.setContentType("text/csv");
+
+        String headerKey = "Content-Disposition";
+        String headerValue = String.format("attachment; filename=\"%s\"",
+                fileName);
+        response.setHeader(headerKey, headerValue);
 
         List<Device> devices = dao.getAllDevices();
 

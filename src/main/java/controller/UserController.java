@@ -40,6 +40,11 @@ public class UserController {
 
         response.setContentType("text/csv");
 
+        String headerKey = "Content-Disposition";
+        String headerValue = String.format("attachment; filename=\"%s\"",
+                fileName);
+        response.setHeader(headerKey, headerValue);
+
         List<Researcher> researchers = dao.getAllResearchers();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),

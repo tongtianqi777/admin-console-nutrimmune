@@ -39,6 +39,11 @@ public class ProtocolsController {
 
         response.setContentType("text/csv");
 
+        String headerKey = "Content-Disposition";
+        String headerValue = String.format("attachment; filename=\"%s\"",
+                fileName);
+        response.setHeader(headerKey, headerValue);
+
         List<Protocol> protocols = dao.getAllProtocols();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
