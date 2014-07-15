@@ -36,17 +36,17 @@
         <div class="well well-small caution">Caution: The import operation will supplement the existing data and overwrite those entities with same id</div>
         <div class="well">
             <h3>Users</h3>
-            <button class="btn btn-large btn-primary" type="button">Export to file..</button>
+            <a class="btn btn-large btn-primary" href="${user_csv_path}">Export to file..</a>
             <button class="btn btn-large btn-primary" type="button">Import from file..</button>
         </div>
         <div class="well">
             <h3>Devices</h3>
-            <button class="btn btn-large btn-primary" type="button">Export to file..</button>
+            <a class="btn btn-large btn-primary" href="${device_csv_path}">Export to file..</a>
             <button class="btn btn-large btn-primary" type="button">Import from file..</button>
         </div>
         <div class="well">
             <h3>Protocols</h3>
-            <button class="btn btn-large btn-primary" type="button">Export to file..</button>
+            <a class="btn btn-large btn-primary" href="${protocol_csv_path}">Export to file..</a>
             <button class="btn btn-large btn-primary" type="button">Import from file..</button>
         </div>
     </div>

@@ -41,17 +41,16 @@ public class CommunityDAO {
 
     public Community getCommunity (int id) throws SQLException {
         ResultSet rs = null;
-        Community community = new Community();
+        Community community = null;
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareCall("select * from community where id=?");
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
-            Community r = null;
 
             while (rs.next()) {
-                r = parseResultSet(rs);
+                community = parseResultSet(rs);
             }
 
         } finally {

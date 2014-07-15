@@ -8,9 +8,16 @@
 
     <http auto-config="true">
         <intercept-url pattern="/" access="ROLE_USER" />
+
         <intercept-url pattern="/users**" access="ROLE_USER" />
+        <intercept-url pattern="/users/**" access="ROLE_USER" />
+
         <intercept-url pattern="/protocols**" access="ROLE_USER" />
+        <intercept-url pattern="/protocols/**" access="ROLE_USER" />
+
         <intercept-url pattern="/devices**" access="ROLE_USER" />
+        <intercept-url pattern="/devices/**" access="ROLE_USER" />
+
         <intercept-url pattern="/communities**" access="ROLE_USER" />
         <intercept-url pattern="/system**" access="ROLE_USER" />
         <form-login
