@@ -20,6 +20,7 @@ public class CSVUtils <BeanCSV> {
             inputStream = file.getInputStream();
 
         } catch (IOException e) {
+            e.printStackTrace();
             errors.add("A problem occurred when we tried to open the file, please check the correctness of the file completeness.");
         }
 
@@ -39,6 +40,7 @@ public class CSVUtils <BeanCSV> {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             errors.add("A problem occurred when we tried to parse the csv data, please verify the correctness of the data format.");
 
         } finally {
@@ -46,6 +48,7 @@ public class CSVUtils <BeanCSV> {
                 try {
                     beanReader.close();
                 } catch (IOException e) {
+                    e.printStackTrace();
                     errors.add("A problem occurred when we tried to close the file, please check the correctness of the file completeness.");
                 }
 

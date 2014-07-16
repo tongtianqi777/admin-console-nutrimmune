@@ -1,13 +1,12 @@
 package model.daos;
 
-import model.beans.*;
+import model.beans.Protocol;
+import model.beans.csv.ProtocolCSV;
+import org.postgresql.util.PGobject;
 import utils.ConnectionFactory;
 import utils.DbUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,11 @@ public class ProtocolDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
             rs = preparedStatement.getResultSet();
-            protocol = parseResultSet(rs);
+
+            while (rs.next()) {
+                protocol = parseResultSet(rs);
+            }
+
         }
         finally {
             DbUtil.close(rs);
@@ -173,5 +176,79 @@ public class ProtocolDAO {
         );
 
         return protocol;
+    }
+
+    public void importCSV(List<ProtocolCSV> protocolCSVs) throws SQLException {
+        try {
+            for (ProtocolCSV p : protocolCSVs) {
+                if (exist(p.getId())) {
+                    update(p);
+
+                } else {
+                    insert(p);
+                }
+            }
+
+        } finally {
+            DbUtil.close(preparedStatement);
+            DbUtil.close(connection);
+        }
+    }
+
+    private void insert(ProtocolCSV p) throws SQLException {
+        PGobject stepsObject = new PGobject();
+        stepsObject.setType("json");
+        stepsObject.setValue(p.getSteps());
+
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "insert into protocol values " +
+                        "(?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        );
+        preparedStatement.setInt(1, p.getId());
+        preparedStatement.setInt(2, p.getAuthorId());
+        preparedStatement.setString(3, p.getName());
+        preparedStatement.setString(4, p.getStatus());
+        preparedStatement.setObject(5, stepsObject);
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(p.getLastModified()));
+        preparedStatement.setTimestamp(7, Timestamp.valueOf(p.getCreateTime()));
+        preparedStatement.setString(8, p.getDescription());
+        preparedStatement.setInt(9, p.getTimePlayed());
+        preparedStatement.execute();
+    }
+
+    private void update(ProtocolCSV p) throws SQLException {
+        PGobject stepsObject = new PGobject();
+        stepsObject.setType("json");
+        stepsObject.setValue(p.getSteps());
+
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update protocol set" +
+                        " author = ?," +
+                        " name = ?," +
+                        " status = ?," +
+                        " steps = ?," +
+                        " last_modified = ?," +
+                        " create_time = ?," +
+                        " description = ?," +
+                        " time_played = ?" +
+                            " where id = ?;"
+        );
+
+        preparedStatement.setInt(1, p.getAuthorId());
+        preparedStatement.setString(2, p.getName());
+        preparedStatement.setString(3, p.getStatus());
+        preparedStatement.setObject(4, stepsObject);
+        preparedStatement.setTimestamp(5, Timestamp.valueOf(p.getLastModified()));
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(p.getCreateTime()));
+        preparedStatement.setString(7, p.getDescription());
+        preparedStatement.setInt(8, p.getTimePlayed());
+        preparedStatement.setInt(9, p.getId());
+        preparedStatement.execute();
+    }
+
+    private boolean exist(int id) throws SQLException {
+        return getProtocolById(id) != null;
     }
 }

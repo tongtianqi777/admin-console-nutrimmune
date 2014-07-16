@@ -2,8 +2,6 @@ package model.beans.csv;
 
 import model.beans.Protocol;
 
-import java.sql.Timestamp;
-
 public class ProtocolCSV {
 
     private int id;
@@ -11,10 +9,13 @@ public class ProtocolCSV {
     private String name;
     private String status;
     private String steps;
-    private Timestamp lastModified;
-    private Timestamp createTime;
+    private String lastModified;
+    private String createTime;
     private String description;
     private int timePlayed;
+
+    public ProtocolCSV() {
+    }
 
     public ProtocolCSV (Protocol protocol) {
         this.id = protocol.getId();
@@ -22,8 +23,8 @@ public class ProtocolCSV {
         this.name = protocol.getName();
         this.status = protocol.getStatus();
         this.steps = protocol.getSteps();
-        this.lastModified = protocol.getLastModified();
-        this.createTime = protocol.getCreateTime();
+        this.lastModified = protocol.getLastModified().toString();
+        this.createTime = protocol.getCreateTime().toString();
         this.description = protocol.getDescription();
         this.timePlayed = protocol.getTimePlayed();
     }
@@ -68,19 +69,19 @@ public class ProtocolCSV {
         this.steps = steps;
     }
 
-    public Timestamp getLastModified() {
+    public String getLastModified() {
         return lastModified;
     }
 
-    public void setLastModified(Timestamp lastModified) {
+    public void setLastModified(String lastModified) {
         this.lastModified = lastModified;
     }
 
-    public Timestamp getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

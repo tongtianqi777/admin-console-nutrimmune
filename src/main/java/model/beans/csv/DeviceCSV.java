@@ -16,6 +16,9 @@ public class DeviceCSV {
     private String status;
     private int communityId;
 
+    public DeviceCSV() {
+    }
+
     public DeviceCSV (Device device) {
         this.id = device.getId();
         this.mac = device.getMac();
