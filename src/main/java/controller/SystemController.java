@@ -18,11 +18,19 @@ public class SystemController {
     public static final String DEVICE_IMPORT_PATH = "/devices/importcsv";
     public static final String PROTOCOL_IMPORT_PATH = "/protocols/importcsv";
 
+    public static final String USER_SAMPLE_PATH = "/sample/users.csv";
+    public static final String DEVICE_SAMPLE_PATH = "/sample/devices.csv";
+    public static final String PROTOCOL_SAMPLE_PATH = "/sample/protocols.csv";
+
     @RequestMapping(method = RequestMethod.GET)
     public String render(ModelMap model) {
         model.addAttribute("user_csv_path", USER_CSV_PATH);
         model.addAttribute("device_csv_path", DEVICE_CSV_PATH);
         model.addAttribute("protocol_csv_path", PROTOCOL_CSV_PATH);
+
+        model.addAttribute("user_sample_path", USER_SAMPLE_PATH);
+        model.addAttribute("device_sample_path", DEVICE_SAMPLE_PATH);
+        model.addAttribute("protocol_sample_path", PROTOCOL_SAMPLE_PATH);
         return "system";
     }
 
