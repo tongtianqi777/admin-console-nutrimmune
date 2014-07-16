@@ -1,7 +1,7 @@
 package controller;
 
-import exceptions.CSVParseException;
-import exceptions.FileOpeningException;
+import controller.exceptions.CSVParseException;
+import controller.exceptions.FileOpeningException;
 import model.beans.Researcher;
 import model.beans.csv.ResearcherCSV;
 import model.daos.ResearcherDAO;
@@ -96,16 +96,22 @@ public class UserController {
             try {
                 List<ResearcherCSV> researcherCSVs = readCSV(file);
                 System.out.println(researcherCSVs);
+                dao.importCSV(researcherCSVs);
                 return "import/success";
 
             } catch (FileOpeningException e) {
                 e.printStackTrace();
-                model.addAttribute("info", "A problem occured when we tried to open the file, please check the correctness of the file completeness.");
+                model.addAttribute("info", "A problem occurred when we tried to open the file, please check the correctness of the file completeness.");
                 return "import/failed";
 
             } catch (CSVParseException e) {
                 e.printStackTrace();
-                model.addAttribute("info", "A problem occured when we tried to parse the csv data, please verify the correctness of the data format.");
+                model.addAttribute("info", "A problem occurred when we tried to parse the csv data, please verify the correctness of the data format.");
+                return "import/failed";
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                model.addAttribute("info", "A problem occurred when writing to database, please check if all the data fulfills the requirement.");
                 return "import/failed";
             }
 
