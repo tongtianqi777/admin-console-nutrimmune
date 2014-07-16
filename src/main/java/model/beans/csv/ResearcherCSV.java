@@ -2,8 +2,6 @@ package model.beans.csv;
 
 import model.beans.Researcher;
 
-import java.sql.Timestamp;
-
 public class ResearcherCSV {
 
     private int id;
@@ -18,7 +16,10 @@ public class ResearcherCSV {
     private String phone;
     private String state;
     private String zip;
-    private Timestamp lastlogin;
+    private String lastlogin;
+
+    public ResearcherCSV() {
+    }
 
     public ResearcherCSV(Researcher researcher) {
         this.id = researcher.getId();
@@ -33,7 +34,7 @@ public class ResearcherCSV {
         this.phone = researcher.getPhone();
         this.state = researcher.getState();
         this.zip = researcher.getZip();
-        this.lastlogin = researcher.getLastlogin();
+        this.lastlogin = researcher.getLastlogin().toString();
     }
 
     public int getId() {
@@ -132,11 +133,30 @@ public class ResearcherCSV {
         this.zip = zip;
     }
 
-    public Timestamp getLastlogin() {
+    public String getLastlogin() {
         return lastlogin;
     }
 
-    public void setLastlogin(Timestamp lastlogin) {
+    public void setLastlogin(String lastlogin) {
         this.lastlogin = lastlogin;
+    }
+
+    @Override
+    public String toString() {
+        return "ResearcherCSV{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", deviceId=" + deviceId +
+                ", status='" + status + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", phone='" + phone + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                ", lastlogin='" + lastlogin + '\'' +
+                '}';
     }
 }

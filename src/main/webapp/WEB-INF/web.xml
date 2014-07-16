@@ -21,7 +21,8 @@
 	</servlet-mapping>
 
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
 
@@ -33,6 +34,9 @@
 
             <!-- Loads Spring Database config file -->
             /WEB-INF/spring-database.xml,
+
+            <!-- Loads Spring Multipart (Upload) config file -->
+            /WEB-INF/spring-file-upload.xml,
 
             <!--Other Context-->
             /WEB-INF/context.xml

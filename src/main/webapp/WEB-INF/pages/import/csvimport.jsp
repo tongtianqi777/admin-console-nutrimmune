@@ -21,7 +21,7 @@
                     <form method="POST" enctype="multipart/form-data" action="${upload_url}">
                         <h2>CSV File Upload</h2>
                         <div class="alert">
-                            <strong>Warning!</strong> After the data is imported, all the ${title} with the same id will be overwritten by the values specified in the uploaded file. All the ${title} that do not exist on the system yet will be created using the id specified in the CSV file.
+                            <strong>Warning!</strong> After the data is imported, all the ${title} with the same id will be overwritten by the values specified in the uploaded file. All the ${title} that do not exist on the system yet will be created using the id specified in the CSV file. To prevent unexpected errors, please verify manually the correctness of the CSV file.
                         </div>
                         <div class="control-group">
                             <input type="file" name="file">

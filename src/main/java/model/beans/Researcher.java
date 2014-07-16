@@ -1,5 +1,7 @@
 package model.beans;
 
+import model.beans.csv.ResearcherCSV;
+
 import java.sql.Timestamp;
 
 public class Researcher {
@@ -33,6 +35,10 @@ public class Researcher {
         this.state = state;
         this.zip = zip;
         this.lastlogin = lastlogin;
+    }
+
+    public Researcher(ResearcherCSV researcherCSV) {
+
     }
 
     public int getId() {
