@@ -1,7 +1,5 @@
 package controller;
 
-import controller.exceptions.CSVParseException;
-import controller.exceptions.FileOpeningException;
 import model.beans.Researcher;
 import model.beans.csv.ResearcherCSV;
 import model.daos.ResearcherDAO;
@@ -15,16 +13,13 @@ import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
-import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.CsvBeanWriter;
-import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
+import utils.CSVUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,6 +29,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     ResearcherDAO dao = new ResearcherDAO();
+    CSVUtils<ResearcherCSV> csvUtils = new CSVUtils<ResearcherCSV>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showUsers(ModelMap model, Principal principal) {
@@ -92,76 +88,27 @@ public class UserController {
     @RequestMapping(value = "/importcsv", method = RequestMethod.POST)
     public String importCsv(@RequestParam("file") MultipartFile file, ModelMap model) {
 
-        if (!file.isEmpty()) {
-            try {
-                List<ResearcherCSV> researcherCSVs = readCSV(file);
-                System.out.println(researcherCSVs);
-                dao.importCSV(researcherCSVs);
-                return "import/success";
-
-            } catch (FileOpeningException e) {
-                e.printStackTrace();
-                model.addAttribute("info", "A problem occurred when we tried to open the file, please check the correctness of the file completeness.");
-                return "import/failed";
-
-            } catch (CSVParseException e) {
-                e.printStackTrace();
-                model.addAttribute("info", "A problem occurred when we tried to parse the csv data, please verify the correctness of the data format.");
-                return "import/failed";
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                model.addAttribute("info", "A problem occurred when writing to database, please check if all the data fulfills the requirement.");
-                return "import/failed";
-            }
-
-        } else {
-            System.out.println("Empty file!!");
-            model.addAttribute("info", "The file is empty.");
+        if (file.isEmpty()) {
+            model.addAttribute("info", "The file is empty. Please make sure you selected a file.");
             return "import/failed";
         }
-    }
 
-    private List<ResearcherCSV> readCSV(MultipartFile file) throws CSVParseException, FileOpeningException {
-        InputStream inputStream = null;
-        try {
-            inputStream = file.getInputStream();
+        List<String> errors = new ArrayList<String>();
+        List<ResearcherCSV> researcherCSVs = csvUtils.readCSV(file, getProcessors(), ResearcherCSV.class, errors);
 
-        } catch (IOException e) {
-            throw new FileOpeningException();
+        if (errors.size() > 0) {
+            model.addAttribute("info", errors.get(0));
+            return "import/failed";
         }
 
-        ICsvBeanReader beanReader = null;
-        List<ResearcherCSV> researcherCSVs = new ArrayList<ResearcherCSV>();
-
         try {
-            beanReader = new CsvBeanReader(new InputStreamReader(inputStream), CsvPreference.STANDARD_PREFERENCE);
+            dao.importCSV(researcherCSVs);
+            return "import/success";
 
-            // the header elements are used to map the values to the bean (names must match)
-            final String[] header = beanReader.getHeader(true);
-            final CellProcessor[] processors = getProcessors();
-
-            ResearcherCSV researcherCSV;
-
-            while ((researcherCSV = beanReader.read(ResearcherCSV.class, header, processors)) != null) {
-                researcherCSVs.add(researcherCSV);
-            }
-
-        } catch (Exception e) {
-            throw new CSVParseException();
-
-        } finally {
-            if (beanReader != null) {
-                try {
-                    beanReader.close();
-                } catch (IOException e) {
-                    throw new FileOpeningException();
-                }
-
-            }
+        } catch (SQLException e) {
+            model.addAttribute("info", "A problem occurred when we tried to update the database. Please verify the data fulfills the requirement.");
+            return "import/failed";
         }
-
-        return researcherCSVs;
     }
 
     private static CellProcessor[] getProcessors() {
