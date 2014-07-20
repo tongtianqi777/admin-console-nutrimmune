@@ -4,13 +4,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html">
-    <title>All Users</title>
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap_and_overrides.css" rel="stylesheet" >
-    <link href="${pageContext.request.contextPath}/resources/tablesorter_theme_blue/style.css" rel="stylesheet" >
+    <title>All Protocols</title>
+    <%@ include file="/WEB-INF/templates/resources.jsp" %>
 
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-latest.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.tablesorter.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/protocols.js"></script>
 </head>
 <body>

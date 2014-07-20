@@ -4,8 +4,28 @@
 
 $(document).ready(function()
     {
-        $("#users").tablesorter();
-        $("#protocols").tablesorter();
-        $("#devices").tablesorter();
+        $("#users").tablesorter({
+            theme: 'blue',
+            widgets        : ['zebra', 'columns'],
+            usNumberFormat : false,
+            sortReset      : true,
+            sortRestart    : true
+        });
+
+        $("#protocols").tablesorter({
+            theme: 'blue',
+            widgets        : ['zebra', 'columns'],
+            usNumberFormat : false,
+            sortReset      : true,
+            sortRestart    : true
+        });
+
+        $("#devices").tablesorter({
+            theme: 'blue',
+            widgets        : ['zebra', 'columns'],
+            usNumberFormat : false,
+            sortReset      : true,
+            sortRestart    : true
+        });
     }
 );

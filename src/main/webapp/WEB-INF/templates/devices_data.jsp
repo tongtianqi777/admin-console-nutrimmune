@@ -1,12 +1,12 @@
-<table id="devices_table" class="tablesorter">
+<table id="devices" class="tablesorter">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Mac Address</th>
-            <th>Owner</th>
-            <th>Manufacture Date</th>
-            <th>Shipping Date</th>
-            <th>Status</th>
+            <th data-placeholder="Try >=33">ID</th>
+            <th data-placeholder="Try *">Mac Address</th>
+            <th data-placeholder="Try *">Owner</th>
+            <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
+            <th data-placeholder="Try 1/1/2014">Shipping Date</th>
+            <th data-placeholder="Try *">Status</th>
         </tr>
     </thead>
     <tbody>
