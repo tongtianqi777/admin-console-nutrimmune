@@ -5,6 +5,7 @@ import model.beans.csv.ResearcherCSV;
 import model.daos.ResearcherDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +42,21 @@ public class UserController {
         }
 
         return "users";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editUser (@PathVariable int id, ModelMap model) {
+        Researcher researcher = null;
+
+        try {
+            researcher = dao.getResearcher(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("researcher", researcher);
+
+        return "edit/user";
     }
 
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)

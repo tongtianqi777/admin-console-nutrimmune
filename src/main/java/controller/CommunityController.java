@@ -20,6 +20,8 @@ public class CommunityController {
     public String render(ModelMap model) {
         try {
             List<Community> communities = dao.getCommunities();
+            model.addAttribute("communities", communities);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<table id="devices" class="tablesorter">
+<table id="communities" class="tablesorter tablesorter-blue">
     <thead>
     <tr>
         <th>ID</th>
@@ -16,9 +15,9 @@
             <td>${community.id}</td>
             <td>${community.name}</td>
             <td>${community.description}</td>
-            <td>${community.numOfDevices}</td>
-            <td>${community.numOfUsers}</td>
-            <td><button value="Delete"></button></td>
+            <td>3</td>
+            <td>10</td>
+            <td><button value="Delete">Delete</button></td>
         </tr>
     </c:forEach>
     </tbody>
