@@ -940,7 +940,7 @@
       <workItem from="1405907297210" duration="200000" />
       <workItem from="1405963627687" duration="1769000" />
       <workItem from="1405966865454" duration="382000" />
-      <workItem from="1405995921169" duration="2947000" />
+      <workItem from="1405995921169" duration="3024000" />
     </task>
     <task id="LOCAL-00001" summary="Add dependencies">
       <created>1405196628379</created>
@@ -958,11 +958,15 @@
       <created>1405998831891</created>
       <updated>1405998831891</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added community pages and controller.">
+      <created>1405998875030</created>
+      <updated>1405998875030</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27087000" />
+    <option name="totallyTimeSpent" value="27164000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
