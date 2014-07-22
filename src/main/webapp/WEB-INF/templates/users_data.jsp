@@ -11,7 +11,7 @@
     <tbody>
     <c:forEach var="user" items="${users}">
       <tr>
-          <td>${user.firstname} ${user.lastname}</td>
+          <td><a href="/researcher/edit/${user.id}" target="_blank">${user.firstname} ${user.lastname}</a></td>
           <td>0</td>
           <td>0</td>
           <td>0</td>

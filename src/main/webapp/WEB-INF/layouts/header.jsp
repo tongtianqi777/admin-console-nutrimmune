@@ -11,9 +11,9 @@
                 <ul class="nav">
                     <li><a href="/">Overview</a></li>
                     <li><a href="/protocols">Protocols</a></li>
-                    <li><a href="/users">Users</a></li>
+                    <li><a href="/researcher">Users</a></li>
                     <li><a href="/devices">Devices</a></li>
-                    <li><a href="#">Communities</a></li>
+                    <li><a href="/community">Communities</a></li>
                     <li><a href="/system">System</a></li>
                 </ul>
             </div>
