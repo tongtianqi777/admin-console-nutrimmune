@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0611d56-55dd-4c99-b6dc-9141bc03e2ef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/CommunityController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/community.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/community_data.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AdminConsole.iws" />
@@ -944,7 +940,7 @@
       <workItem from="1405907297210" duration="200000" />
       <workItem from="1405963627687" duration="1769000" />
       <workItem from="1405966865454" duration="382000" />
-      <workItem from="1405995921169" duration="2891000" />
+      <workItem from="1405995921169" duration="2947000" />
     </task>
     <task id="LOCAL-00001" summary="Add dependencies">
       <created>1405196628379</created>
@@ -958,11 +954,15 @@
       <created>1405893790899</created>
       <updated>1405893790899</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added community pages and controller.">
+      <created>1405998831891</created>
+      <updated>1405998831891</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27031000" />
+    <option name="totallyTimeSpent" value="27087000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1070,7 +1070,8 @@
     <MESSAGE value="Add dependencies" />
     <MESSAGE value="Updated library" />
     <MESSAGE value="Filters for protocols / users and devices. Updated sorting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Filters for protocols / users and devices. Updated sorting." />
+    <MESSAGE value="Added community pages and controller." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added community pages and controller." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
