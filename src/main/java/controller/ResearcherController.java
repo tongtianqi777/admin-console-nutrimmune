@@ -1,14 +1,12 @@
 package controller;
 
+import controller.forms.ResearcherForm;
 import model.beans.Researcher;
 import model.beans.csv.ResearcherCSV;
 import model.daos.ResearcherDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.ParseInt;
@@ -27,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/researcher")
+public class ResearcherController {
     ResearcherDAO dao = new ResearcherDAO();
     CSVUtils<ResearcherCSV> csvUtils = new CSVUtils<ResearcherCSV>();
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showUsers(ModelMap model, Principal principal) {
+    public String showResearchers(ModelMap model, Principal principal) {
 
         try {
             model.addAttribute("users", dao.getAllResearchers());
@@ -45,7 +43,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editUser (@PathVariable int id, ModelMap model) {
+    public String editResearcher(@PathVariable int id, ModelMap model) {
         Researcher researcher = null;
 
         try {
@@ -57,6 +55,17 @@ public class UserController {
         model.addAttribute("researcher", researcher);
 
         return "edit/user";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateResearcher(@ModelAttribute("researcherForm") ResearcherForm form, ModelMap model) {
+        try {
+            dao.updateResearcher(form);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "edit/success";
     }
 
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)
