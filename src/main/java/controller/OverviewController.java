@@ -141,6 +141,11 @@ public class OverviewController {
                     "protocols", protocolNum[i]
             );
 
+            //debug: temporary number
+            jsonElement.addProperty(
+                    "users", protocolNum[i]
+            );
+
             jsonArray.add(jsonElement);
         }
 

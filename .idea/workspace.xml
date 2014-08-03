@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0611d56-55dd-4c99-b6dc-9141bc03e2ef" name="Default" comment="added services.jar">
+    <list default="true" id="b0611d56-55dd-4c99-b6dc-9141bc03e2ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/OverviewController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/OverviewController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -54,8 +54,8 @@
       <file leaf-file-name="OverviewController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/OverviewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75829387" vertical-offset="1310" max-vertical-offset="2130">
-              <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.23696682" vertical-offset="1690" max-vertical-offset="2205">
+              <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -553,6 +553,29 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <configuration default="false" name="All in AdminConsole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="AdminConsole" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -922,10 +945,16 @@
         </option>
       </method>
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.AppTests" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in AdminConsole" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in AdminConsole" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -989,7 +1018,7 @@
       <workItem from="1407037612380" duration="95000" />
       <workItem from="1407037903430" duration="5186000" />
       <workItem from="1407075469202" duration="8075000" />
-      <workItem from="1407087056255" duration="4758000" />
+      <workItem from="1407087056255" duration="5190000" />
     </task>
     <task id="LOCAL-00001" summary="Add dependencies">
       <created>1405196628379</created>
@@ -1035,11 +1064,15 @@
       <created>1407098794938</created>
       <updated>1407098794938</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed array out of bounds in overview controller">
+      <created>1407100174812</created>
+      <updated>1407100174812</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100667000" />
+    <option name="totallyTimeSpent" value="101099000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1154,7 +1187,8 @@
     <MESSAGE value="Modified the jsp files to match the new objects and DAOs" />
     <MESSAGE value="Added statistics functions on the overview" />
     <MESSAGE value="added services.jar" />
-    <option name="LAST_COMMIT_MESSAGE" value="added services.jar" />
+    <MESSAGE value="fixed array out of bounds in overview controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed array out of bounds in overview controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1563,8 +1597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/OverviewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75829387" vertical-offset="1310" max-vertical-offset="2130">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.23696682" vertical-offset="1690" max-vertical-offset="2205">
+          <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
           <folding />
         </state>
       </provider>
