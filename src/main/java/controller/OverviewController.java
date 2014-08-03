@@ -76,7 +76,7 @@ public class OverviewController {
             List<Protocol> protocols) {
 
         switch (timeframe) {
-            case MONTH: return getMonthStatistics(users, protocols, 6);
+            case MONTH: return getMonthStatistics(users, protocols, 12);
         }
 
         return null;
@@ -88,9 +88,8 @@ public class OverviewController {
             int timeframeLength
             ) {
 
-        Calendar previousMonth = Calendar.getInstance();
-        previousMonth.add(Calendar.MONTH, -1);
-        System.out.println(previousMonth);
+        Calendar thisMonth = Calendar.getInstance();
+        System.out.println(thisMonth);
 
         Calendar lowerBound = Calendar.getInstance();
         lowerBound.add(Calendar.MONTH, -timeframeLength);
@@ -109,8 +108,8 @@ public class OverviewController {
                 protocolNum[timeframeLength - 1]++;
 
             } else {
-                int diffYear = previousMonth.get(Calendar.YEAR) - createdTime.get(Calendar.YEAR);
-                int diffMonth = diffYear * 12 + previousMonth.get(Calendar.MONTH) - createdTime.get(Calendar.MONTH);
+                int diffYear = thisMonth.get(Calendar.YEAR) - createdTime.get(Calendar.YEAR);
+                int diffMonth = diffYear * 12 + thisMonth.get(Calendar.MONTH) - createdTime.get(Calendar.MONTH);
                 if (diffMonth >= 0) {
                     protocolNum[diffMonth]++;
                 }
@@ -126,10 +125,10 @@ public class OverviewController {
         //iterate through each month
         for (int i = protocolNum.length - 1; i >= 0; i--) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(previousMonth.getTimeInMillis());
+            calendar.setTimeInMillis(thisMonth.getTimeInMillis());
             calendar.add(Calendar.MONTH, -i);
 
-            int month = calendar.get(Calendar.MONTH) + 1;
+            String month = getMonthStr(calendar.get(Calendar.MONTH) + 1);
 
             String calendarStr = month + " " + calendar.get(Calendar.YEAR);
 
@@ -141,7 +140,7 @@ public class OverviewController {
                     "protocols", protocolNum[i]
             );
 
-            //debug: temporary number
+            //todo: temporary number
             jsonElement.addProperty(
                     "users", protocolNum[i]
             );
@@ -149,7 +148,30 @@ public class OverviewController {
             jsonArray.add(jsonElement);
         }
 
+        jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("dashLengthColumn", 5);
+        jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("alpha", 0.2);
+        jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("additional", "(projection)");
+
         return jsonArray.toString();
+    }
+
+    private String getMonthStr(int monthInt) {
+        switch (monthInt) {
+            case 1: return "January";
+            case 2: return "February";
+            case 3: return "March";
+            case 4: return "April";
+            case 5: return "May";
+            case 6: return "June";
+            case 7: return "July";
+            case 8: return "August";
+            case 9: return "September";
+            case 10: return "October";
+            case 11: return "November";
+            case 12: return "December";
+        }
+
+        return "";
     }
 
     public enum Timeframe {
