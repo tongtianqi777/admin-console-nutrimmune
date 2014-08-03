@@ -111,7 +111,9 @@ public class OverviewController {
             } else {
                 int diffYear = previousMonth.get(Calendar.YEAR) - createdTime.get(Calendar.YEAR);
                 int diffMonth = diffYear * 12 + previousMonth.get(Calendar.MONTH) - createdTime.get(Calendar.MONTH);
-                protocolNum[diffMonth]++;
+                if (diffMonth >= 0) {
+                    protocolNum[diffMonth]++;
+                }
             }
         }
 
