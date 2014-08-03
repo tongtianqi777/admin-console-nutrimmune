@@ -1,39 +1,35 @@
 package controller;
 
-import model.beans.Researcher;
-import model.beans.Protocol;
+import com.ntm.postgres.Protocol;
+import com.ntm.postgres.UserCollabServer;
+import model.daos.AdminDeviceDAO;
+import model.daos.AdminProtocolDAO;
+import model.daos.AdminUserDAO;
 import model.daos.CommunityDAO;
-import model.daos.DeviceDAO;
-import model.daos.ProtocolDAO;
-import model.daos.ResearcherDAO;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.sql.SQLException;
+import java.util.List;
 
-/**
- * Created by Rix on 7/12/14.
- */
 @Controller
 @RequestMapping("/")
 public class OverviewController {
-    ResearcherDAO user_dao = new ResearcherDAO();
-    ProtocolDAO protocol_dao = new ProtocolDAO();
-    DeviceDAO device_dao = new DeviceDAO();
-    CommunityDAO community_dao = new CommunityDAO();
+    AdminUserDAO userDAO = new AdminUserDAO();
+    AdminProtocolDAO protocolDAO = new AdminProtocolDAO();
+    AdminDeviceDAO deviceDAO = new AdminDeviceDAO();
+    CommunityDAO communityDAO = new CommunityDAO();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showUsers(ModelMap model) {
 
         try {
-            List<Researcher> usersList = user_dao.getAllResearchers();
-            List<Protocol> protocolsList = protocol_dao.getAllProtocols();
+            List<UserCollabServer> usersList = userDAO.getAllUsers();
+            List<Protocol> protocolsList = protocolDAO.getAllProtocols();
 
-
-            
+            //TODO Tianqi know what to do?
             for (int i = 0; i < usersList.size(); i++) {
                 for (int j = 0; j < protocolsList.size(); j++) {
                     usersList.get(i);
@@ -44,10 +40,8 @@ public class OverviewController {
 
             model.addAttribute("users", usersList);
             model.addAttribute("protocols", protocolsList);
-            model.addAttribute("devices", device_dao.getAllDevices());
-            model.addAttribute("communities", community_dao.getCommunities());
-
-
+            model.addAttribute("devices", deviceDAO.getAllDevices());
+            model.addAttribute("communities", communityDAO.getCommunities());
 
 
         } catch (SQLException e) {

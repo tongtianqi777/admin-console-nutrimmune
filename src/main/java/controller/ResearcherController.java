@@ -1,9 +1,8 @@
 package controller;
 
+import com.ntm.postgres.UserCollabServer;
 import controller.forms.ResearcherForm;
-import model.beans.Researcher;
-import model.beans.csv.ResearcherCSV;
-import model.daos.ResearcherDAO;
+import model.daos.AdminUserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +26,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/researcher")
 public class ResearcherController {
-    ResearcherDAO dao = new ResearcherDAO();
-    CSVUtils<ResearcherCSV> csvUtils = new CSVUtils<ResearcherCSV>();
+    AdminUserDAO dao = new AdminUserDAO();
+    CSVUtils<UserCollabServer> csvUtils = new CSVUtils<UserCollabServer>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showResearchers(ModelMap model, Principal principal) {
 
         try {
-            model.addAttribute("users", dao.getAllResearchers());
+            model.addAttribute("users", dao.getAllUsers());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -44,15 +43,15 @@ public class ResearcherController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editResearcher(@PathVariable int id, ModelMap model) {
-        Researcher researcher = null;
+        UserCollabServer user = null;
 
         try {
-            researcher = dao.getResearcher(id);
+            user = dao.getUser(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        model.addAttribute("researcher", researcher);
+        model.addAttribute("researcher", user);
 
         return "edit/user";
     }
@@ -79,32 +78,36 @@ public class ResearcherController {
                 fileName);
         response.setHeader(headerKey, headerValue);
 
-        List<Researcher> researchers = dao.getAllResearchers();
+        List<UserCollabServer> researchers = dao.getAllUsers();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
                 CsvPreference.STANDARD_PREFERENCE);
 
         String[] header = {
                 "id",
-                "username",
-                "password",
-                "deviceId",
-                "status",
-                "firstname",
-                "lastname",
+                "login",
                 "address",
-                "country",
+                "affiliation",
                 "phone",
+                "country",
+                "firstname",
+                "lastlogin",
+                "lastname",
+                "password",
                 "state",
+                "timezone",
                 "zip",
-                "lastlogin"
+                "role",
+                "token",
+                "expiry",
+                "remote",
+                "status"
         };
 
         csvWriter.writeHeader(header);
 
-        for (Researcher researcher : researchers) {
-            ResearcherCSV researcherCSV = new ResearcherCSV(researcher);
-            csvWriter.write(researcherCSV, header);
+        for (UserCollabServer user : researchers) {
+            csvWriter.write(user, header);
         }
 
         csvWriter.close();
@@ -119,7 +122,7 @@ public class ResearcherController {
         }
 
         List<String> errors = new ArrayList<String>();
-        List<ResearcherCSV> researcherCSVs = csvUtils.readCSV(file, getProcessors(), ResearcherCSV.class, errors);
+        List<UserCollabServer> users = csvUtils.readCSV(file, getProcessors(), UserCollabServer.class, errors);
 
         if (errors.size() > 0) {
             model.addAttribute("info", errors.get(0));
@@ -127,7 +130,7 @@ public class ResearcherController {
         }
 
         try {
-            dao.importCSV(researcherCSVs);
+            dao.importCSV(users);
             return "import/success";
 
         } catch (SQLException e) {
@@ -140,18 +143,23 @@ public class ResearcherController {
 
         final CellProcessor[] processors = new CellProcessor[]{
                 new NotNull(new ParseInt()), // id (must be unique)
-                new NotNull(), // username
-                new NotNull(), // password
-                new NotNull(new ParseInt()), // device id
-                new NotNull(), // status
-                new NotNull(), // firstName
-                new NotNull(), // lastName
-                new Optional(), // Address
-                new Optional(), // Country
-                new Optional(), // Phone
-                new Optional(), // State
-                new Optional(), // Zip
-                new Optional(), // Last Login
+                new NotNull(), // login
+                new NotNull(), // address
+                new NotNull(), // affiliation
+                new NotNull(), // phone
+                new NotNull(), // country
+                new NotNull(), // firstname
+                new Optional(), // lastlogin
+                new Optional(), // lastname
+                new Optional(), // password
+                new Optional(), // state
+                new Optional(), // timezone
+                new Optional(new ParseInt()), // zip
+                new NotNull(), //role
+                new NotNull(), // token
+                new NotNull(), // expiry
+                new NotNull(), // remote
+                new NotNull() // status
         };
 
         return processors;

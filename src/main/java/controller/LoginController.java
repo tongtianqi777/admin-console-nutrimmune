@@ -1,6 +1,6 @@
 package controller;
 
-import model.daos.ResearcherDAO;
+import model.daos.AdminUserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
     public static final String SECURITY_CHECK_URL = "security";
-    ResearcherDAO dao = new ResearcherDAO();
+    AdminUserDAO dao = new AdminUserDAO();
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login (

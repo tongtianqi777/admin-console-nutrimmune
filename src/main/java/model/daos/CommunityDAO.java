@@ -1,7 +1,7 @@
 package model.daos;
 
 
-import model.beans.Community;
+import model.beans.admin.Community;
 import utils.ConnectionFactory;
 import utils.DbUtil;
 

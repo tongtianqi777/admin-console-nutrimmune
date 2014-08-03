@@ -1,8 +1,7 @@
 package controller;
 
-import model.beans.Device;
-import model.beans.csv.DeviceCSV;
-import model.daos.DeviceDAO;
+import com.ntm.postgres.Device;
+import model.daos.AdminDeviceDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +26,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/devices")
 public class DevicesController {
-    DeviceDAO dao = new DeviceDAO();
-    CSVUtils<DeviceCSV> csvUtils = new CSVUtils<DeviceCSV>();
+    AdminDeviceDAO dao = new AdminDeviceDAO();
+    CSVUtils<Device> csvUtils = new CSVUtils<Device>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showDevices(ModelMap model) {
@@ -61,19 +60,17 @@ public class DevicesController {
         String[] header = {
                 "id",
                 "mac",
-                "manuAddr",
-                "manuDate",
-                "shipDate",
-                "ownerName",
-                "status",
-                "communityId"
+                "manufactureDate",
+                "osbuildrev",
+                "ownerId",
+                "shipdate",
+                "status"
         };
 
         csvWriter.writeHeader(header);
 
         for (Device device : devices) {
-            DeviceCSV deviceCSV = new DeviceCSV(device);
-            csvWriter.write(deviceCSV, header);
+            csvWriter.write(device, header);
         }
 
         csvWriter.close();
@@ -88,7 +85,7 @@ public class DevicesController {
         }
 
         List<String> errors = new ArrayList<String>();
-        List<DeviceCSV> deviceCSVs = csvUtils.readCSV(file, getProcessors(), DeviceCSV.class, errors);
+        List<Device> devices = csvUtils.readCSV(file, getProcessors(), Device.class, errors);
 
         if (errors.size() > 0) {
             model.addAttribute("info", errors.get(0));
@@ -96,7 +93,7 @@ public class DevicesController {
         }
 
         try {
-            dao.importCSV(deviceCSVs);
+            dao.importCSV(devices);
             return "import/success";
 
         } catch (SQLException e) {
@@ -111,12 +108,11 @@ public class DevicesController {
         final CellProcessor[] processors = new CellProcessor[]{
                 new NotNull(new ParseInt()), // id (must be unique)
                 new NotNull(), // mac
-                new NotNull(), // manu_addr
-                new NotNull(new ParseDate("yyyy-MM-dd")), // manu_date
-                new NotNull(new ParseDate("yyyy-MM-dd")), // ship_date
-                new NotNull(), // owner_name
-                new NotNull(), // status
-                new NotNull(new ParseInt()) // community
+                new NotNull(new ParseDate("yyyy-MM-dd")), // manufactureDate
+                new NotNull(new ParseInt()), // osbuildrev
+                new NotNull(new ParseInt()), // ownerId
+                new NotNull(new ParseDate("yyyy-MM-dd")), // shipdate
+                new NotNull() // status
         };
 
         return processors;

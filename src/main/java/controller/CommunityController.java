@@ -1,6 +1,6 @@
 package controller;
 
-import model.beans.Community;
+import model.beans.admin.Community;
 import model.daos.CommunityDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

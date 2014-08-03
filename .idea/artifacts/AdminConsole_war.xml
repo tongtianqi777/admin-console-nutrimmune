@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="AdminConsole:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="AdminConsole.war">
-      <element id="artifact" artifact-name="AdminConsole:war exploded" />
-    </root>
-  </artifact>
-</component>
