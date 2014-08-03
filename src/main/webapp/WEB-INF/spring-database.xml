@@ -7,9 +7,9 @@
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
         <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://nutrimmune.cyky4xulzpzn.us-east-1.rds.amazonaws.com:5432/nutrimmune" />
-        <property name="username" value="postgres" />
-        <property name="password" value="cmunutrimmune" />
+        <property name="url" value="jdbc:postgresql://nutrimmuneserver.cyky4xulzpzn.us-east-1.rds.amazonaws.com:5432/nutrimmune" />
+        <property name="username" value="nutrimmune" />
+        <property name="password" value="nutrimmune" />
     </bean>
 
 </beans>

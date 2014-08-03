@@ -14,9 +14,9 @@
             <tr>
                 <td>${device.id}</td>
                 <td>${device.mac}</td>
-                <td>${device.ownerName}</td>
-                <td>${device.manuDate}</td>
-                <td>${device.shipDate}</td>
+                <td>${device.manufactureDate}</td>
+                <td>${device.osbuildrev}</td>
+                <td>${device.shipdate}</td>
                 <td>${device.status}</td>
             </tr>
         </c:forEach>

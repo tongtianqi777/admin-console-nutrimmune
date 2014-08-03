@@ -2324,10 +2324,28 @@
       <column name="viewowner" sqlType="name" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="definition" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
     </table>
+    <table name="admin_authorities" schema="public" catalog="nutrimmune" type="TABLE">
+      <column name="username" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="authority" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <foreign-key name="admin_authorities_username_fkey" columns="username" ref-table="admins" ref-schema="public" ref-catalog="" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="admins" schema="public" catalog="nutrimmune" type="TABLE">
+      <column name="username" sqlType="varchar" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="varchar" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="enabled" sqlType="int2" precision="5" scale="0" nullable="false" jdbcType="5" def="MQ=="/>
+      <primary-key name="admins_pkey" columns="username"/>
+      <exported-key name="admin_authorities_username_fkey" table="admin_authorities" schema="public" catalog="nutrimmune" columns="username"/>
+    </table>
+    <table name="community" schema="public" catalog="nutrimmune" type="TABLE">
+      <column name="id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="varchar" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="varchar" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="community_pkey" columns="id"/>
+    </table>
     <table name="devices" schema="public" catalog="nutrimmune" type="TABLE">
       <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnZGV2aWNlc19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
-      <column name="mac" sqlType="varchar" precision="15" scale="0" nullable="true" jdbcType="12"/>
-      <column name="manufactureddate" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="mac" sqlType="varchar" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="manufacturedate" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
       <column name="osbuildrev" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="owner_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="shipdate" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
