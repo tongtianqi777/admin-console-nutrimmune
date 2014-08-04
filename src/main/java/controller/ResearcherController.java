@@ -49,6 +49,7 @@ public class ResearcherController {
             user = dao.getUser(id);
         } catch (SQLException e) {
             e.printStackTrace();
+            return "edit/fail";
         }
 
         model.addAttribute("researcher", user);
@@ -62,6 +63,7 @@ public class ResearcherController {
             dao.updateResearcher(form);
         } catch (SQLException e) {
             e.printStackTrace();
+            return "edit/fail";
         }
 
         return "edit/success";

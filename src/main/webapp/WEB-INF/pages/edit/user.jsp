@@ -23,10 +23,14 @@
                     <input type="hidden" name="id" value="${researcher.id}">
 
                     <label>Username</label>
-                    <input type="text" name="username" value="${researcher.username}">
+                    <input type="text" name="login" value="${researcher.login}">
 
                     <label>Password</label>
                     <input type="password" name="password" value="${researcher.password}">
+
+                    <label>Token</label>
+                    <input type="text" name="token" value="${researcher.token}">
+
 
                     <legend>Basic Information</legend>
 
@@ -50,6 +54,24 @@
 
                     <label>Zip Code</label>
                     <input type="text" name="zip" value="${researcher.zip}">
+
+
+                    <legend>Operations</legend>
+
+                    <label>Status</label>
+                    <input type="text" name="status" value="${researcher.status}">
+
+
+                    <legend>Others</legend>
+
+                    <label>Affiliation</label>
+                    <input type="text" name="affiliation" value="${researcher.affiliation}">
+
+                    <label>Time Zone</label>
+                    <input type="text" name="timezone" value="${researcher.timezone}">
+
+                    <label>Remote</label>
+                    <input type="text" name="remote" value="${researcher.remote}">
 
                     <div class="alert">
                         <strong>Warning!</strong> After clicking the update button, the information of this user will be overwritten immediately.
