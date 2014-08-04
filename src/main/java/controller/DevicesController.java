@@ -1,12 +1,11 @@
 package controller;
 
 import com.ntm.postgres.Device;
+import controller.forms.DeviceForm;
 import model.daos.AdminDeviceDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.supercsv.cellprocessor.ParseDate;
 import org.supercsv.cellprocessor.ParseInt;
@@ -41,6 +40,33 @@ public class DevicesController {
         return "devices";
     }
 
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editDevice (@PathVariable int id, ModelMap model) {
+        Device device = null;
+
+        try {
+            device = dao.getDevice(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+        }
+
+        model.addAttribute("device", device);
+
+        return "edit/device";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateDevice(@ModelAttribute("protocolForm") DeviceForm form, ModelMap model) {
+        try {
+            dao.update(form);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+        }
+
+        return "edit/success";
+    }
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)
     public void getAllDeviceCsv (HttpServletResponse response) throws SQLException, IOException {
         String fileName = "devices.csv";

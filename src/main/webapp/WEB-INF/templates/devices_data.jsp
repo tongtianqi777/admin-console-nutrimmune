@@ -12,7 +12,7 @@
     <tbody>
         <c:forEach var="device" items="${devices}">
             <tr>
-                <td>${device.id}</td>
+                <td><a href="/devices/edit/${device.id}">${device.id}</a></td>
                 <td>${device.mac}</td>
                 <td>${device.manufactureDate}</td>
                 <td>${device.osbuildrev}</td>

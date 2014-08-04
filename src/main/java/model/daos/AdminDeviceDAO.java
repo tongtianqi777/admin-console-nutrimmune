@@ -2,6 +2,8 @@ package model.daos;
 
 import com.ntm.postgres.Device;
 import com.ntm.postgres.DeviceDAO;
+import controller.forms.DeviceForm;
+import utils.ConnectionFactory;
 import utils.DbUtil;
 
 import java.sql.SQLException;
@@ -27,6 +29,31 @@ public class AdminDeviceDAO extends DeviceDAO {
         }
     }
 
+    public void update(DeviceForm form) throws SQLException {
+        /*
+        private int id;
+    private String mac;
+    private int osbuildrev;
+    private int ownerId;
+    private String status;
+         */
+
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update devices set" +
+                        " mac = ?," +
+                        " osbuildrev = ?," +
+                        " owner_id = ?," +
+                        " status = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, form.getMac());
+        preparedStatement.setInt(2, form.getOsbuildrev());
+        preparedStatement.setInt(3, form.getOwnerId());
+        preparedStatement.setString(4, form.getStatus());
+        preparedStatement.setInt(5, form.getId());
+        preparedStatement.execute();
+    }
 }
 
 
