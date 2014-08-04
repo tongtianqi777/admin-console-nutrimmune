@@ -23,10 +23,10 @@
                     <input type="hidden" name="id" value="0">
 
                     <label>Name</label>
-                    <input type="text" name="name" value="${community.name}">
+                    <input type="text" name="name" value="">
 
                     <label>Description</label>
-                    <input type="text" name="description" value="${community.description}">
+                    <input type="text" name="description" value="">
 
                     <button class="btn btn-primary btn-large" type="submit">Add Community</button>
                 </fieldset>

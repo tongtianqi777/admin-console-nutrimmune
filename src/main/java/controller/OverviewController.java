@@ -123,6 +123,10 @@ public class OverviewController {
 
         //iterate all the devices to calculate the statistics
         for (Device device : devices) {
+            if (device.getShipdate() == null) {
+                continue;       //some devices may not have dates
+            }
+
             Calendar createdTime = Calendar.getInstance();
             createdTime.setTimeInMillis(device.getShipdate().getTime());
 

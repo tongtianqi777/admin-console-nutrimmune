@@ -67,6 +67,24 @@ public class DevicesController {
 
         return "edit/success";
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String rendarAddDevice () {
+        return "add/device";
+    }
+
+    @RequestMapping(value = "/add/submit", method = RequestMethod.POST)
+    public String addDevice (DeviceForm form, ModelMap model) {
+        try {
+            dao.add(form);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "add/fail";
+        }
+
+        return "add/success";
+    }
+
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)
     public void getAllDeviceCsv (HttpServletResponse response) throws SQLException, IOException {
         String fileName = "devices.csv";

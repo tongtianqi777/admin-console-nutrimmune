@@ -54,6 +54,24 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.setInt(5, form.getId());
         preparedStatement.execute();
     }
+
+    public void add(DeviceForm form) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "insert into devices (mac, osbuildrev, owner_id, status) values (" +
+                        " ?," +
+                        " ?," +
+                        " ?," +
+                        " ? " +
+                        ");"
+        );
+        preparedStatement.setString(1, form.getMac());
+        preparedStatement.setInt(2, form.getOsbuildrev());
+        preparedStatement.setInt(3, form.getOwnerId());
+        preparedStatement.setString(4, form.getStatus());
+        preparedStatement.execute();
+    }
+
 }
 
 
