@@ -15,7 +15,7 @@
     <tbody>
         <c:forEach var="protocol" items="${protocols}">
             <tr>
-                <td><a href="/protocols/edit/${protocol.id}">${protocol.name}</a></td>
+                <td><a href="/protocols/edit/${protocol.id}" target="_blank">${protocol.name}</a></td>
                 <td>${protocol.author}</td>
                 <td>1.0</td>
                 <td>${protocol.timePlayed}</td>

@@ -28,6 +28,9 @@ public class CommunityDAO {
 
             while (rs.next()) {
                 Community r = parseResultSet(rs);
+                if (r.getId() == 0) {
+                    continue;
+                }
                 communities.add(r);
             }
 
@@ -69,5 +72,29 @@ public class CommunityDAO {
         );
 
         return c;
+    }
+
+    public void update(Community form) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update community set" +
+                        " name = ?," +
+                        " description = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, form.getName());
+        preparedStatement.setString(2, form.getDescription());
+        preparedStatement.setInt(3, form.getId());
+        preparedStatement.execute();
+    }
+
+    public void delete(int id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "delete from community" +
+                        " where id = ?;"
+        );
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
     }
 }
