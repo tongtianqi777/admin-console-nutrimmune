@@ -97,4 +97,17 @@ public class CommunityDAO {
         preparedStatement.setInt(1, id);
         preparedStatement.execute();
     }
+
+    public void add(Community form) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "insert into community (name, description) values (" +
+                        " ?," +
+                        " ? " +
+                        ");"
+        );
+        preparedStatement.setString(1, form.getName());
+        preparedStatement.setString(2, form.getDescription());
+        preparedStatement.execute();
+    }
 }

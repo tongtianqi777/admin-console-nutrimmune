@@ -69,5 +69,22 @@ public class CommunityController {
         return "success";
     }
 
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String rendarAddCommunity () {
+        return "add/community";
+    }
+
+    @RequestMapping(value = "/add/submit", method = RequestMethod.POST)
+    public String addCommunity (@ModelAttribute("community") Community form, ModelMap model) {
+        try {
+            dao.add(form);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "add/fail";
+        }
+
+        return "add/success";
+    }
+
 
 }

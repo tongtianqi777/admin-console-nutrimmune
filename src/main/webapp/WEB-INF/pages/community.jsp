@@ -21,6 +21,7 @@
     <div class="row-fluid">
         <div class="span12">
             <h1>All Communities</h1>
+            <a href="/community/add">Add a Community</a>
             <%@ include file="/WEB-INF/templates/community_data.jsp" %>
         </div>
     </div>
