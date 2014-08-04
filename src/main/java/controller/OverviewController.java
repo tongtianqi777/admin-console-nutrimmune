@@ -31,17 +31,16 @@ public class OverviewController {
     public String showUsers(ModelMap model) {
 
         try {
-            List<UserCollabServer> usersList = userDAO.getAllUsers();
-            List<Protocol> protocolsList = protocolDAO.getAllProtocols();
+            List<UserCollabServer> users = userDAO.getAllUsers();
+            List<Protocol> protocols = protocolDAO.getAllProtocols();
             List<Device> devices = deviceDAO.getAllDevices();
             List<Community> communities = communityDAO.getCommunities();
 
-            //debug:
-            String statistics = getStatisticsByNow(Timeframe.MONTH, usersList, protocolsList);
+            String statistics = getStatisticsByNow(Timeframe.MONTH, devices, protocols);
             model.addAttribute("statistics", statistics);
 
-            model.addAttribute("users", usersList);
-            model.addAttribute("protocols", protocolsList);
+            model.addAttribute("users", users);
+            model.addAttribute("protocols", protocols);
             model.addAttribute("devices", devices);
             model.addAttribute("communities", communities);
 
@@ -57,52 +56,60 @@ public class OverviewController {
     Return data format:
     [
             {
-                "date": "1 2014",
+                "date": "January 2014",
+				"devices": 10,
                 "protocols": 20
             },
             {
-                "date": "2 2014",
+                "date": "February 2014",
+				"devices": 10,
                 "protocols": 30
             },
             {
-                "date": "3 2014",
-                "protocols": 40
+                "date": "March 2014",
+				"devices": 10,
+                "protocols": 40,
+				"dashLengthColumn": 5,
+				"alpha":0.2,
+				"additional":"(projection)"
             }
     ]
      */
     private String getStatisticsByNow (
             Timeframe timeframe,
-            List<UserCollabServer> users,
+            List<Device> devices,
             List<Protocol> protocols) {
 
         switch (timeframe) {
-            case MONTH: return getMonthStatistics(users, protocols, 12);
+            case MONTH: return getMonthStatistics(devices, protocols, 12);
         }
 
         return null;
     }
 
     private String getMonthStatistics (
-            List<UserCollabServer> users,
+            List<Device> devices,
             List<Protocol> protocols,
             int timeframeLength
             ) {
 
+        //get the current calendar
         Calendar thisMonth = Calendar.getInstance();
-        System.out.println(thisMonth);
 
+        //get the calendar of the 1st day of the month before time frame
+        //e.g. it's Aug 10th 2014 now, and the time frame is 12, the lowerBound would be Sep 1st 2013
         Calendar lowerBound = Calendar.getInstance();
-        lowerBound.add(Calendar.MONTH, -timeframeLength);
+        lowerBound.add(Calendar.MONTH, -timeframeLength + 1);
         lowerBound.set(Calendar.DAY_OF_MONTH, 0);
-        System.out.println(lowerBound);
 
         //protocolNum[i] is the number of protocols in month: previous month - i
         int[] protocolNum = new int[timeframeLength];
+        int[] deviceNum = new int[timeframeLength];
 
+        //iterate all the protocols to calculate the statistics
         for (Protocol protocol : protocols) {
             Calendar createdTime = Calendar.getInstance();
             createdTime.setTimeInMillis(protocol.getCreated().getTime());
-            System.out.println("Created TImee:  " + createdTime);
 
             if (createdTime.before(lowerBound)) {
                 protocolNum[timeframeLength - 1]++;
@@ -110,44 +117,61 @@ public class OverviewController {
             } else {
                 int diffYear = thisMonth.get(Calendar.YEAR) - createdTime.get(Calendar.YEAR);
                 int diffMonth = diffYear * 12 + thisMonth.get(Calendar.MONTH) - createdTime.get(Calendar.MONTH);
-                if (diffMonth >= 0) {
-                    protocolNum[diffMonth]++;
-                }
+                protocolNum[diffMonth]++;
             }
         }
 
-        for (int i = protocolNum.length - 2; i >= 0; i--) {
+        //iterate all the devices to calculate the statistics
+        for (Device device : devices) {
+            Calendar createdTime = Calendar.getInstance();
+            createdTime.setTimeInMillis(device.getShipdate().getTime());
+
+            if (createdTime.before(lowerBound)) {
+                deviceNum[timeframeLength - 1]++;
+
+            } else {
+                int diffYear = thisMonth.get(Calendar.YEAR) - createdTime.get(Calendar.YEAR);
+                int diffMonth = diffYear * 12 + thisMonth.get(Calendar.MONTH) - createdTime.get(Calendar.MONTH);
+                deviceNum[diffMonth]++;
+            }
+        }
+
+
+        //add up the numbers of each month
+        for (int i = timeframeLength - 2; i >= 0; i--) {
             protocolNum[i] = protocolNum[i] + protocolNum[i + 1];
+            deviceNum[i] = deviceNum[i] + deviceNum[i + 1];
         }
 
         JsonArray jsonArray = new JsonArray();
 
-        //iterate through each month
-        for (int i = protocolNum.length - 1; i >= 0; i--) {
+        //iterate through each month, and add the keys and values to the json array
+        for (int i = timeframeLength - 1; i >= 0; i--) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(thisMonth.getTimeInMillis());
             calendar.add(Calendar.MONTH, -i);
 
+            //convert the month integer to description. e.g: 0 -> Jan, 1 -> Feb
             String month = getMonthStr(calendar.get(Calendar.MONTH) + 1);
-
             String calendarStr = month + " " + calendar.get(Calendar.YEAR);
 
-            JsonObject jsonElement = new JsonObject();
-            jsonElement.addProperty(
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty(
                     "date", calendarStr
             );
-            jsonElement.addProperty(
+            jsonObject.addProperty(
                     "protocols", protocolNum[i]
             );
 
-            //todo: temporary number
-            jsonElement.addProperty(
-                    "users", protocolNum[i]
+            jsonObject.addProperty(
+                    "devices", deviceNum[i]
             );
 
-            jsonArray.add(jsonElement);
+            jsonArray.add(jsonObject);
         }
 
+        //add more description to the last json object
+        //to make the last object looks different
         jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("dashLengthColumn", 5);
         jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("alpha", 0.2);
         jsonArray.get(jsonArray.size() - 1).getAsJsonObject().addProperty("additional", "(projection)");
