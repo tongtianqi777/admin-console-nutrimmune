@@ -49,12 +49,12 @@ public class ProtocolsController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateResearcher(@ModelAttribute("protocolForm") ProtocolForm form, ModelMap model) {
-//        try {
-//            dao.updateProtocol(form);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return "edit/fail";
-//        }
+        try {
+            dao.updateProtocol(form);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+        }
 
         return "edit/success";
     }

@@ -16,7 +16,7 @@
     <div class="row-fluid">
         <div class="span6 well well-large">
             <h1>Edit Protocol (ID: ${protocol.id})</h1>
-            <form method="POST" action="/protocol/update">
+            <form method="POST" action="/protocols/update">
                 <fieldset>
                     <legend>Basic</legend>
 
