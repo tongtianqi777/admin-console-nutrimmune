@@ -4,7 +4,7 @@
 
 $(document).ready(function()
     {
-        $("#users").tablesorter({
+        $("#communities").tablesorter({
             theme: 'blue',
 
             // hidden filter input/selects will resize the columns, so try to minimize the change

@@ -20,3 +20,5 @@
     </c:forEach>
     </tbody>
 </table>
+
+<%@ include file="/WEB-INF/templates/pager.jsp" %>

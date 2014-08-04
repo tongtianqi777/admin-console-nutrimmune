@@ -87,6 +87,6 @@ $(document).ready(function()
                 filter_defaultAttrib : 'data-value'
 
             }
-        });
+        }).tablesorterPager({container: $("#pager")});
     }
 );

@@ -11,6 +11,8 @@
 <head>
     <title>Community</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/community.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/layouts/header.jsp" %>
