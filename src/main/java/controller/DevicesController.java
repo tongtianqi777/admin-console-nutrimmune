@@ -4,6 +4,7 @@ import com.ntm.postgres.Device;
 import com.ntm.postgres.DeviceStatus;
 import controller.forms.DeviceForm;
 import model.daos.AdminDeviceDAO;
+import model.daos.CommunityDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +28,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/devices")
 public class DevicesController {
-    AdminDeviceDAO dao = new AdminDeviceDAO();
+    AdminDeviceDAO deviceDAO = new AdminDeviceDAO();
+    CommunityDAO communityDAO = new CommunityDAO();
     CSVUtils<Device> csvUtils = new CSVUtils<Device>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String showDevices(ModelMap model) {
 
         try {
-            model.addAttribute("devices", dao.getAllDevices());
+            model.addAttribute("devices", deviceDAO.getAllDevices());
+            model.addAttribute("communities", communityDAO.getCommunities());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,7 +50,7 @@ public class DevicesController {
         Device device = null;
 
         try {
-            device = dao.getDevice(id);
+            device = deviceDAO.getDevice(id);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,7 +69,7 @@ public class DevicesController {
                 System.out.println("Device information is not valid.");
                 return "add/fail";
             }
-            dao.update(form);
+            deviceDAO.update(form);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,7 +96,7 @@ public class DevicesController {
                 return "add/fail";
             }
 
-            dao.add(form);
+            deviceDAO.add(form);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -129,7 +132,7 @@ public class DevicesController {
                 fileName);
         response.setHeader(headerKey, headerValue);
 
-        List<Device> devices = dao.getAllDevices();
+        List<Device> devices = deviceDAO.getAllDevices();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
                 CsvPreference.STANDARD_PREFERENCE);
@@ -170,7 +173,7 @@ public class DevicesController {
         }
 
         try {
-            dao.importCSV(devices);
+            deviceDAO.importCSV(devices);
             return "import/success";
 
         } catch (SQLException e) {

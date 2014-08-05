@@ -28,9 +28,6 @@ public class CommunityDAO {
 
             while (rs.next()) {
                 Community r = parseResultSet(rs);
-                if (r.getId() == 0) {
-                    continue;
-                }
                 communities.add(r);
             }
 
