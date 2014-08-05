@@ -20,10 +20,13 @@
                 <fieldset>
                     <legend>Basic</legend>
 
-                    <input type="hidden" name="id" value="0">
+                    <input type="hidden" name="id" value="0 ">
 
                     <label>Mac Address</label>
                     <input type="text" name="mac" value="">
+
+                    <label>Manufacture Date</label>
+                    <input type="text" name="manufactureDate" value="">
 
                     <label>OS Build Rev</label>
                     <input type="text" name="osbuildrev" value="">
@@ -31,7 +34,10 @@
                     <label>Owner ID</label>
                     <input type="text" name="ownerId" value="">
 
-                    <label>Status</label>
+                    <label>Ship Date</label>
+                    <input type="text" name="shipdate" value="">
+
+                    <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
                     <input type="text" name="status" value="">
 
                     <button class="btn btn-primary btn-large" type="submit">Add Device</button>

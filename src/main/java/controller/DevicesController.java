@@ -1,6 +1,7 @@
 package controller;
 
 import com.ntm.postgres.Device;
+import com.ntm.postgres.DeviceStatus;
 import controller.forms.DeviceForm;
 import model.daos.AdminDeviceDAO;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import utils.CSVUtils;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +48,7 @@ public class DevicesController {
 
         try {
             device = dao.getDevice(id);
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "edit/fail";
@@ -59,8 +62,17 @@ public class DevicesController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateDevice(@ModelAttribute("protocolForm") DeviceForm form, ModelMap model) {
         try {
+            if (!valid(form)) {
+                System.out.println("Device information is not valid.");
+                return "add/fail";
+            }
             dao.update(form);
+
         } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+
+        } catch (ParseException e) {
             e.printStackTrace();
             return "edit/fail";
         }
@@ -76,13 +88,34 @@ public class DevicesController {
     @RequestMapping(value = "/add/submit", method = RequestMethod.POST)
     public String addDevice (DeviceForm form, ModelMap model) {
         try {
+            if (!valid(form)) {
+                System.out.println("Device information is not valid.");
+                return "add/fail";
+            }
+
             dao.add(form);
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "add/fail";
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "edit/fail";
         }
 
         return "add/success";
+    }
+
+    private boolean valid(DeviceForm form) {
+        try {
+            DeviceStatus.valueOf(form.getStatus());
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)

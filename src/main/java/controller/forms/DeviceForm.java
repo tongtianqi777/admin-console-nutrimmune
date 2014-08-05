@@ -4,8 +4,10 @@ public class DeviceForm {
 
     private int id;
     private String mac;
+    private String manufactureDate;
     private int osbuildrev;
     private int ownerId;
+    private String shipdate;
     private String status;
 
     public int getId() {
@@ -24,6 +26,14 @@ public class DeviceForm {
         this.mac = mac;
     }
 
+    public String getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public void setManufactureDate(String manufactureDate) {
+        this.manufactureDate = manufactureDate;
+    }
+
     public int getOsbuildrev() {
         return osbuildrev;
     }
@@ -38,6 +48,14 @@ public class DeviceForm {
 
     public void setOwnerId(int ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getShipdate() {
+        return shipdate;
+    }
+
+    public void setShipdate(String shipdate) {
+        this.shipdate = shipdate;
     }
 
     public String getStatus() {

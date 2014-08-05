@@ -25,13 +25,19 @@
                     <label>Mac Address</label>
                     <input type="text" name="mac" value="${device.mac}">
 
+                    <label>Manufacture Date</label>
+                    <input type="text" name="manufactureDate" value="${device.manufactureDate}">
+
                     <label>OS Build Rev</label>
                     <input type="text" name="osbuildrev" value="${device.osbuildrev}">
 
                     <label>Owner ID</label>
                     <input type="text" name="ownerId" value="${device.ownerId}">
 
-                    <label>Status</label>
+                    <label>Ship Date</label>
+                    <input type="text" name="shipdate" value="${device.shipdate}">
+
+                    <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
                     <input type="text" name="status" value="${device.status}">
 
                     <div class="alert">
