@@ -5,10 +5,7 @@ import controller.forms.ProtocolForm;
 import model.daos.AdminProtocolDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import utils.CSVUtils;
 
 import java.sql.SQLException;
@@ -81,4 +78,18 @@ public class ProtocolsController {
         return "view/protocol";
     }
 
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody
+    String deleteProtocol (@RequestParam("id") int id) {
+        try {
+            dao.delete(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
 }

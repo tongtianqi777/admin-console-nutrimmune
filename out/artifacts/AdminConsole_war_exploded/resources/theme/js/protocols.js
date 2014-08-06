@@ -88,5 +88,25 @@ $(document).ready(function()
 
             }
         }).tablesorterPager({container: $("#pager")});
+
+        $("#delete-button").click (function() {
+            var button = $(this);
+            var id = button.attr("data-id");
+
+            button.html("Deleting...");
+            $.ajax({
+                url: "/protocols/delete",
+                type: 'POST',
+                data: "id=" + id,
+                context: button,
+                success: function (data) {
+                    if (data == 'success') {
+                        $("tr.data[data-id=" + id + "]").remove();
+                    } else {
+                        button.html("Delete Failed")
+                    }
+                }
+            });
+        });
     }
 );

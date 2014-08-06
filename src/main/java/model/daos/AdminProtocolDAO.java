@@ -35,4 +35,15 @@ public class AdminProtocolDAO extends ProtocolDAO {
         preparedStatement.setInt(9, form.getId());
         preparedStatement.execute();
     }
+
+
+    public void delete(int id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "delete from protocols" +
+                        " where id = ?;"
+        );
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+    }
 }
