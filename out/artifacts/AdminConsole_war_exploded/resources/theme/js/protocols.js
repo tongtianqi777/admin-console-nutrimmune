@@ -89,7 +89,7 @@ $(document).ready(function()
             }
         }).tablesorterPager({container: $("#pager")});
 
-        $("#delete-button").click (function() {
+        $(".delete-button").click (function() {
             var button = $(this);
             var id = button.attr("data-id");
 
