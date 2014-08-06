@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/templates/pager.jsp" %>
+
 <table id="communities" class="tablesorter tablesorter-blue">
     <thead>
     <tr>
@@ -22,5 +24,3 @@
     </c:forEach>
     </tbody>
 </table>
-
-<%@ include file="/WEB-INF/templates/pager.jsp" %>

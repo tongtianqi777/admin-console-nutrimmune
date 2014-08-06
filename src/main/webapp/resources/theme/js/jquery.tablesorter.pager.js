@@ -50,7 +50,7 @@
 
             // output default: '{page}/{totalPages}'
             // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
-            output: '{startRow} to {endRow} of {totalRows} rows', // '{page}/{totalPages}'
+            output: '{startRow} to {endRow} of {totalRows} items', // '{page}/{totalPages}'
 
             // apply disabled classname to the pager arrows when the rows at either extreme is visible
             updateArrows: true,

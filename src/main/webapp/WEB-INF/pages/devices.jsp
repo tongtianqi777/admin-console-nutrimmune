@@ -20,8 +20,8 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-            <h1>All Devices</h1>
+        <div class="span12 text-center">
+            <h3>All Devices</h3>
             <a href="/devices/add" target="_blank">Add New Device</a>
             <%@ include file="/WEB-INF/templates/devices_data.jsp" %>
         </div>

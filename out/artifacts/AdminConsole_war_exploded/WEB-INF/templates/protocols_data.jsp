@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/templates/pager.jsp" %>
+
 <table id="protocols" class="tablesorter">
     <thead>
         <tr>
@@ -20,10 +22,12 @@
                 <td>1.0</td>
                 <td>${protocol.timePlayed}</td>
                 <td>${protocol.status}</td>
-                <td>${protocol.description}</td>
+                <td class="text-center">
+                    <a href="/protocol/view/${protocol.id}" class="btn btn-success btn-small"><i class="icon-ok icon-white"></i>View</a>
+                    <a href="/protocol/edit/${protocol.id}" class="btn btn-warning btn-small"><i class="icon-edit icon-white"></i>Edit</a>
+                    <a href="#" class="btn btn-danger btn-small"><i class="icon-remove icon-white"></i>Remove</a>
+                </td>
             </tr>
         </c:forEach>
     </tbody>
 </table>
-
-<%@ include file="/WEB-INF/templates/pager.jsp" %>

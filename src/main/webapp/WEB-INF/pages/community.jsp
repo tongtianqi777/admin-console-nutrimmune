@@ -19,8 +19,8 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-            <h1>All Communities</h1>
+        <div class="span12 text-center">
+            <h3>All Communities</h3>
             <a href="/community/add">Add a Community</a>
             <%@ include file="/WEB-INF/templates/community_data.jsp" %>
         </div>

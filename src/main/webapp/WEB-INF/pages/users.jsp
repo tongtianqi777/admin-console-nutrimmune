@@ -13,8 +13,8 @@
 
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span12">
-                <h1>All Users</h1>
+            <div class="span12 text-center">
+                <h3>All Users</h3>
                 <%@ include file="/WEB-INF/templates/users_data.jsp" %>
             </div>
         </div>

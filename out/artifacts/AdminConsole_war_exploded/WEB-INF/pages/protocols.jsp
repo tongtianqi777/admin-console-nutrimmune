@@ -14,8 +14,8 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-            <h1>All Protocols</h1>
+        <div class="span12 text-center">
+            <h3>All Protocols</h3>
             <%@ include file="/WEB-INF/templates/protocols_data.jsp" %>
         </div>
     </div>

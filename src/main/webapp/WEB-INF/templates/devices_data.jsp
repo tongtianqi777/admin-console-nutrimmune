@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/templates/pager.jsp" %>
+
 <table id="devices" class="tablesorter">
     <thead>
     <tr>
@@ -7,7 +9,7 @@
         <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
         <th data-placeholder="Try 1/1/2014">Shipping Date</th>
         <th data-placeholder="Try *">Status</th>
-        <th>Community</th>
+        <th data-placeholder="" class="filter-false">Community</th>
     </tr>
     </thead>
     <tbody>
@@ -37,5 +39,3 @@
     </c:forEach>
     </tbody>
 </table>
-
-<%@ include file="/WEB-INF/templates/pager.jsp" %>
