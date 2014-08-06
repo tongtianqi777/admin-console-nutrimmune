@@ -33,6 +33,11 @@
                         <textarea cols="300" rows="3" type="text" name="description">${protocol.description}</textarea>
                     </div>
 
+                   <div class="control-group">
+                       <label>Steps</label>
+                       <textarea rows="10" cols="300" type="JSON" name="steps">${protocol.getJsonSteps()}</textarea>
+                   </div>
+
                     <div class="control-group">
                         <label>Author</label>
                         <input type="text" name="author" value="${protocol.author}">
