@@ -30,7 +30,7 @@
                 <a href="/protocols/edit/${protocol.id}" class="btn btn-warning btn-small"><i
                         class="icon-edit icon-white"></i> Edit</a>
                 <button value="Delete" id="delete-button" class="btn btn-danger btn-small" data-id="${protocol.id}">
-                    Delete
+                    <i class="icon-remove icon-white"></i> Delete
                 </button>
             </td>
         </tr>
