@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html">
-    <title>Edit Protocol (ID: ${protocol.id})</title>
+    <title>View Protocol (ID: ${protocol.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/protocols.js"></script>
@@ -18,9 +18,8 @@
         <div class="span6.center text-center">
             <div class="border-form-div">
 
-                <h3>Edit Protocol (ID: ${protocol.id})</h3>
+                <h3>View Protocol (ID: ${protocol.id})</h3>
 
-                <form class="form-horizontal" method="POST" action="/protocols/update">
 
                     <div class="control-group">
                         <input type="hidden" name="id" value="${protocol.id}">
@@ -64,20 +63,8 @@
                         <input type="text" name="type" value="${protocol.type}">
                     </div>
 
-                    <div class="control-group">
-                        <div class="span3.center">
-                            <div class="alert">
-                                <strong>Warning!</strong> After clicking the update button, the information of this
-                                protocol will be overwritten immediately.
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="control-group">
-                        <button class="btn btn-primary btn-large" type="submit">Update Changes</button>
-                    </div>
 
-                </form>
 
                 <a href="/protocols">Back to Protocols</a>
             </div>

@@ -51,12 +51,34 @@ public class ProtocolsController {
     public String updateResearcher(@ModelAttribute("protocolForm") ProtocolForm form, ModelMap model) {
         try {
             dao.updateProtocol(form);
+            model.addAttribute("protocols", dao.getAllProtocols());
+
+            model.addAttribute("success_message", "You successfully updated the entity.\n");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return "edit/fail";
+        }
+
+
+        return "protocols";
+    }
+
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public String viewProtocol (@PathVariable String id, ModelMap model) {
+        Protocol protocol = null;
+
+        try {
+            protocol = dao.getProtocolById(id);
         } catch (SQLException e) {
             e.printStackTrace();
             return "edit/fail";
         }
 
-        return "edit/success";
+        model.addAttribute("protocol", protocol);
+
+        return "view/protocol";
     }
 
 }
