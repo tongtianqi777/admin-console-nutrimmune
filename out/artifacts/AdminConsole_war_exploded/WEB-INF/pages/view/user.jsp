@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html">
-    <title>Edit Protocol (ID: ${protocol.id})</title>
+    <title>View User (ID: ${researcher.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/protocols.js"></script>
@@ -18,14 +18,11 @@
         <div class="span6.center text-center">
             <div class="border-form-div">
 
-                <h3>Edit User (ID: ${researcher.id})</h3>
-
-                <form class="form-horizontal" method="POST" action="/researcher/update">
+                <h3>View User (ID: ${researcher.id})</h3>
 
                     <legend>Authentication</legend>
 
                     <input type="hidden" name="id" value="${researcher.id}">
-
                     <div class="control-group">
                         <label>Username</label>
                         <input type="text" name="login" value="${researcher.login}">
@@ -89,21 +86,10 @@
                         <label>Time Zone</label>
                         <input type="text" name="timezone" value="${researcher.timezone}">
                     </div>
-
                     <div class="control-group">
-                        <div class="span3.center">
-                            <div class="alert">
-                                <strong>Warning!</strong> After clicking the update button, the information of this
-                                protocol will be overwritten immediately.
-                            </div>
-                        </div>
+                        <label>Remote</label>
+                        <input type="text" name="remote" value="${researcher.remote}">
                     </div>
-
-                    <div class="control-group">
-                        <button class="btn btn-primary btn-large" type="submit">Update Changes</button>
-                    </div>
-
-                </form>
 
                 <a href="/researcher">Back to Researchers</a>
             </div>

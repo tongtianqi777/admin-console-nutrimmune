@@ -7,8 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0611d56-55dd-4c99-b6dc-9141bc03e2ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/ResearcherController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/ResearcherController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AdminConsole.iws" />
@@ -32,61 +37,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="users_data.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.0833335" vertical-offset="233" max-vertical-offset="645">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="protocols.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/protocols.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="555">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state vertical-scroll-proportion="-9.416667" vertical-offset="119" max-vertical-offset="555">
+              <caret line="23" column="19" selection-start-line="19" selection-start-column="12" selection-end-line="23" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="protocols_data.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/protocols_data.jsp">
+      <file leaf-file-name="user.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.3333335" vertical-offset="266" max-vertical-offset="660">
-              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+            <state vertical-scroll-proportion="-3.75" vertical-offset="1260" max-vertical-offset="1785">
+              <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="protocol.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp">
+      <file leaf-file-name="users.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19035533" vertical-offset="270" max-vertical-offset="1275">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="protocol.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.291667" vertical-offset="182" max-vertical-offset="1395">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="protocols.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/protocols.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
-              <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.tablesorter.pager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/jquery.tablesorter.pager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="9260" max-vertical-offset="13845">
-              <caret line="629" column="45" selection-start-line="629" selection-start-column="43" selection-end-line="629" selection-end-column="45" />
+            <state vertical-scroll-proportion="-8.75" vertical-offset="120" max-vertical-offset="540">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -95,8 +80,51 @@
       <file leaf-file-name="ProtocolsController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ProtocolsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="842" max-vertical-offset="1380">
-              <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1380">
+              <caret line="52" column="16" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminUserDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="938" max-vertical-offset="1410">
+              <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+              <folding>
+                <marker date="1407362330000" expanded="true" signature="915:1555" placeholder="update users..." />
+                <marker date="1407362330000" expanded="true" signature="3091:3150" placeholder="delete from ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResearcherController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/ResearcherController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
+              <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/user.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7451456" vertical-offset="1028" max-vertical-offset="1545">
+              <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="protocol.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.625" vertical-offset="330" max-vertical-offset="1275">
+              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -105,33 +133,13 @@
       <file leaf-file-name="AdminProtocolDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/AdminProtocolDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="825">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="825">
+              <caret line="47" column="5" selection-start-line="39" selection-start-column="3" selection-end-line="47" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1407350654000" expanded="true" signature="417:815" placeholder="update proto..." />
                 <marker date="1407350654000" expanded="true" signature="1578:1641" placeholder="delete from ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="community.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/community.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="555">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="community.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/community.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1048" max-vertical-offset="1770">
-              <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -154,10 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/model/daos/DeviceDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/daos/admin/DeviceDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/daos/admin/AdminResearcherDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/beans/admin/csv/ProtocolCSV.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/beans/admin/csv/ResearcherCSV.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/beans/admin/csv/UserCSV.java" />
@@ -166,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/main/java/model/daos/admin/AdminDeviceDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/daos/admin/AdminReviewDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/daos/admin/AdminUserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/ResearcherController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/daos/AdminDeviceDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/DevicesController.java" />
         <option value="$PROJECT_DIR$/lib/services.jar!/com/ntm/postgres/ProtocolDAO.java" />
@@ -185,13 +188,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/js/overview.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/css/theme.blue.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/resources.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/js/devices.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/js/community.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/community_data.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/pager.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/devices.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/community.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/devices_data.jsp" />
@@ -205,6 +205,14 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/protocols_data.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js" />
+        <option value="$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/reseacher.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/ResearcherController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/user.jsp" />
       </list>
     </option>
   </component>
@@ -1225,7 +1233,7 @@
       <workItem from="1407264428897" duration="128000" />
       <workItem from="1407267072253" duration="9000" />
       <workItem from="1407341599993" duration="7911000" />
-      <workItem from="1407352690945" duration="1442000" />
+      <workItem from="1407352690945" duration="4990000" />
     </task>
     <task id="LOCAL-00001" summary="Add dependencies">
       <created>1405196628379</created>
@@ -1279,7 +1287,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111837000" />
+    <option name="totallyTimeSpent" value="115385000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1328,7 +1336,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24283667" sideWeight="0.55407655" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37577257" sideWeight="0.7019386" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35352287" sideWeight="0.7019386" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33844188" sideWeight="0.5387722" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1407,20 +1415,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/CSVUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="855">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.2.8.RELEASE/spring-beans-3.2.8.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56650245" vertical-offset="695" max-vertical-offset="900">
@@ -1447,13 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1182519" vertical-offset="0" max-vertical-offset="525">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6557377" vertical-offset="0" max-vertical-offset="840">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1555,13 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1103" max-vertical-offset="1455">
-          <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
@@ -1600,26 +1580,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5833335" vertical-offset="91" max-vertical-offset="435">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/devices.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.5833335" vertical-offset="211" max-vertical-offset="555">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="435">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1678,14 +1643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ResearcherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1812" max-vertical-offset="2295">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/CommunityDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="852" max-vertical-offset="1605">
@@ -1732,14 +1689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/protocols.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/jquery.tablesorter.pager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0" vertical-offset="9260" max-vertical-offset="13845">
@@ -1748,18 +1697,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/protocols.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="555">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        <state vertical-scroll-proportion="-14.375" vertical-offset="960" max-vertical-offset="1395">
+          <caret line="87" column="7" selection-start-line="66" selection-start-column="20" selection-end-line="87" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ProtocolsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/protocols_data.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="927" max-vertical-offset="1380">
-          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+        <state vertical-scroll-proportion="-3.4583333" vertical-offset="202" max-vertical-offset="660">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/protocols.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1296" max-vertical-offset="1755">
+          <caret line="109" column="11" selection-start-line="91" selection-start-column="8" selection-end-line="109" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/theme/js/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1266" max-vertical-offset="1755">
+          <caret line="97" column="33" selection-start-line="97" selection-start-column="33" selection-end-line="97" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1767,7 +1732,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/AdminProtocolDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="825">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <caret line="47" column="5" selection-start-line="39" selection-start-column="3" selection-end-line="47" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1407350654000" expanded="true" signature="417:815" placeholder="update proto..." />
@@ -1776,26 +1741,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/protocols_data.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/daos/AdminUserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.3333335" vertical-offset="266" max-vertical-offset="660">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/protocol.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.291667" vertical-offset="182" max-vertical-offset="1395">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="938" max-vertical-offset="1410">
+          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+          <folding>
+            <marker date="1407362330000" expanded="true" signature="915:1555" placeholder="update users..." />
+            <marker date="1407362330000" expanded="true" signature="3091:3150" placeholder="delete from ..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/protocol.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19035533" vertical-offset="270" max-vertical-offset="1275">
+        <state vertical-scroll-proportion="-0.625" vertical-offset="330" max-vertical-offset="1275">
           <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/protocols.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.416667" vertical-offset="119" max-vertical-offset="555">
+          <caret line="23" column="19" selection-start-line="19" selection-start-column="12" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="120" max-vertical-offset="540">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ProtocolsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1380">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ResearcherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
+          <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/users_data.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.0833335" vertical-offset="233" max-vertical-offset="645">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/edit/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75" vertical-offset="1260" max-vertical-offset="1785">
+          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/view/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7451456" vertical-offset="1028" max-vertical-offset="1545">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1808,8 +1824,8 @@
           <artifact-editor>
             <show-content>
               <type id="javaee-facet-resources" />
-              <type id="jpa-descriptors" />
               <type id="library" />
+              <type id="jpa-descriptors" />
               <type id="artifact" />
             </show-content>
           </artifact-editor>

@@ -1,5 +1,6 @@
 package controller;
 
+import com.ntm.postgres.Protocol;
 import com.ntm.postgres.UserCollabServer;
 import controller.forms.ResearcherForm;
 import model.daos.AdminUserDAO;
@@ -61,12 +62,31 @@ public class ResearcherController {
     public String updateResearcher(@ModelAttribute("researcherForm") ResearcherForm form, ModelMap model) {
         try {
             dao.updateResearcher(form);
+            model.addAttribute("users", dao.getAllUsers());
+            model.addAttribute("success_message", "You successfully updated the entity.\n");
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "edit/fail";
         }
 
-        return "edit/success";
+        return "users";
+    }
+
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public String viewResearcher(@PathVariable int id, ModelMap model) {
+        UserCollabServer user = null;
+
+        try {
+            user = dao.getUser(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+        }
+
+        model.addAttribute("researcher", user);
+
+        return "view/user";
     }
 
     @RequestMapping(value = "/allcsv", method = RequestMethod.GET)
@@ -165,5 +185,19 @@ public class ResearcherController {
         };
 
         return processors;
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody
+    String deleteResearcher (@RequestParam("id") int id) {
+        try {
+            dao.delete(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
     }
 }

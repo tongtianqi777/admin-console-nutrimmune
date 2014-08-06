@@ -83,4 +83,14 @@ public class AdminUserDAO extends UserDAO {
     private String remote;
     private String status;
      */
+
+    public void delete(int id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "delete from users" +
+                        " where id = ?;"
+        );
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+    }
 }

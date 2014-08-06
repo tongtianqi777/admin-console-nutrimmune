@@ -15,6 +15,13 @@
         <div class="row-fluid">
             <div class="span12 text-center">
                 <h3>All Users</h3>
+
+                <c:if test="${not empty success_message}">
+                    <div id="output" class="center alert-success">
+                            ${success_message}
+                    </div>
+                </c:if>
+
                 <%@ include file="/WEB-INF/templates/users_data.jsp" %>
             </div>
         </div>
