@@ -18,19 +18,26 @@
 
                 <h1>Add New Community</h1>
 
-                <form method="POST" action="/community/add/submit">
+                <form class="form-horizontal" method="POST" action="/community/add/submit">
                     <fieldset>
                         <legend>Basic</legend>
 
                         <input type="hidden" name="id" value="0">
 
-                        <label>Name</label>
-                        <input type="text" name="name" value="">
+                        <div class="control-group">
 
-                        <label>Description</label>
-                        <input type="text" name="description" value="">
+                            <label>Name</label>
+                            <input type="text" name="name" value="">
+                        </div>
+                        <div class="control-group">
 
-                        <button class="btn btn-primary btn-large" type="submit">Add Community</button>
+                            <label>Description</label>
+                            <input type="text" name="description" value="">
+                        </div>
+                        <div class="control-group">
+
+                            <button class="btn btn-primary btn-large" type="submit">Add Community</button>
+                        </div>
                     </fieldset>
                 </form>
             </div>

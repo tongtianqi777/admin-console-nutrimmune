@@ -6,8 +6,6 @@
         <th>ID</th>
         <th>Community Name</th>
         <th>Description</th>
-        <th>Number of Devices</th>
-        <th>Number of Users</th>
         <th>Operations</th>
     </tr>
     </thead>
@@ -17,8 +15,6 @@
             <td><a href="/community/edit/${community.id}" target="_blank">${community.id}</a></td>
             <td>${community.name}</td>
             <td>${community.description}</td>
-            <td>3</td>
-            <td>10</td>
             <td>
                 <a href="/community/view/${device.id}" class="btn btn-success btn-small"><i
                         class="icon-ok icon-white"></i> View</a><br><br>
