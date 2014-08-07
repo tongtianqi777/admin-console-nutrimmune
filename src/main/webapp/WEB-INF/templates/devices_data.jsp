@@ -25,11 +25,8 @@
                     <c:forEach var="community" items="${communities}">
                         <c:choose>
                             <c:when test="${device.communityId == community.id}">
-                                <option value="${community.id}" selected>${community.name}</option>
+                                {community.name}
                             </c:when>
-                            <c:otherwise>
-                                <option value="${community.id}">${community.name}</option>
-                            </c:otherwise>
                         </c:choose>
                     </c:forEach>
                 </select>

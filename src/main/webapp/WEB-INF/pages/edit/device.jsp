@@ -52,7 +52,6 @@
                 </form>
 
                 <a href="/devices">Back to Devices</a>
-
             </div>
         </div>
     </div>
