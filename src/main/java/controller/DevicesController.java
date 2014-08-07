@@ -2,6 +2,7 @@ package controller;
 
 import com.ntm.postgres.Device;
 import com.ntm.postgres.DeviceStatus;
+import com.ntm.postgres.Protocol;
 import controller.forms.DeviceForm;
 import model.daos.AdminDeviceDAO;
 import model.daos.CommunityDAO;
@@ -85,6 +86,22 @@ public class DevicesController {
         }
 
         return "devices";
+    }
+
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public String viewDevice (@PathVariable String id, ModelMap model) {
+        Device device = null;
+
+        try {
+            device = deviceDAO.getDevice(Integer.parseInt(id));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "edit/fail";
+        }
+
+        model.addAttribute("device", device);
+
+        return "view/device";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

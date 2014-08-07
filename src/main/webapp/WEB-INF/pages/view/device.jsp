@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html">
-    <title>Edit Device (ID: ${device.id})</title>
+    <title>View Device (ID: ${device.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
 
 </head>
@@ -16,9 +16,8 @@
     <div class="row-fluid">
         <div class="span6.center text-center">
             <div class="border-form-div">
-                <h1>Edit Device (ID: ${device.id})</h1>
+                <h1>View Device (ID: ${device.id})</h1>
 
-                <form method="POST" action="/devices/update">
                     <fieldset>
                         <legend>Basic</legend>
 
@@ -47,12 +46,9 @@
                             will be overwritten immediately.
                         </div>
 
-                        <button class="btn btn-primary btn-large" type="submit">Update Changes</button>
                     </fieldset>
-                </form>
 
                 <a href="/devices">Back to Devices</a>
-
             </div>
         </div>
     </div>
