@@ -21,6 +21,7 @@ public class ProtocolsController {
         try {
             model.addAttribute("protocols", dao.getAllProtocols());
             model.addAttribute("test", "succ");
+            model.addAttribute("unpublished", "UNPUBLISHED");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,6 +85,34 @@ public class ProtocolsController {
     String deleteProtocol (@RequestParam("id") int id) {
         try {
             dao.delete(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping(value = "/approve", method = RequestMethod.POST)
+    public @ResponseBody
+    String approveProtocol (@RequestParam("id") int id) {
+        try {
+            dao.approveProtocol(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping(value = "/deny", method = RequestMethod.POST)
+    public @ResponseBody
+    String denyProtocol (@RequestParam("id") int id) {
+        try {
+            dao.denyProtocol(id);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -36,6 +36,29 @@ public class AdminProtocolDAO extends ProtocolDAO {
         preparedStatement.execute();
     }
 
+    public void approveProtocol(Integer protocol_id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update protocols set" +
+                        " status = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, "PUBLISHED");
+        preparedStatement.setInt(2, protocol_id);
+        preparedStatement.execute();
+    }
+
+    public void denyProtocol(Integer protocol_id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update protocols set" +
+                        " status = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, "DENIED");
+        preparedStatement.setInt(2, protocol_id);
+        preparedStatement.execute();
+    }
 
     public void delete(int id) throws SQLException {
         connection = ConnectionFactory.getConnection();

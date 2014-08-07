@@ -108,5 +108,49 @@ $(document).ready(function()
                 }
             });
         });
+
+        $(".approve-button").click (function() {
+            var button = $(this);
+            var id = button.attr("data-id");
+
+            button.html("Approving...");
+            $.ajax({
+                url: "/protocols/approve",
+                type: 'POST',
+                data: "id=" + id,
+                context: button,
+                success: function (data) {
+                    if (data == 'success') {
+                        $("tr.data[data-id=" + id + "]").each(function(index, value) {
+                            $('td:eq(4)', this).html("PUBLISHED");
+                        });
+                    } else {
+                        button.html("Approval Failed")
+                    }
+                }
+            });
+        });
+
+        $(".deny-button").click (function() {
+            var button = $(this);
+            var id = button.attr("data-id");
+
+            button.html("Denying...");
+            $.ajax({
+                url: "/protocols/deny",
+                type: 'POST',
+                data: "id=" + id,
+                context: button,
+                success: function (data) {
+                    if (data == 'success') {
+                        $("tr.data[data-id=" + id + "]").each(function(index, value) {
+                            $('td:eq(4)', this).html("DENIED");
+                        });
+                    } else {
+                        button.html("Denial Failed")
+                    }
+                }
+            });
+        });
     }
 );

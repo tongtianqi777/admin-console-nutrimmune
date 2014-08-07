@@ -21,7 +21,22 @@
             <td><a href="/protocols/view/${protocol.id}">${protocol.name}</a></td>
             <td>${protocol.author}</td>
             <td>${protocol.timePlayed}</td>
-            <td>${protocol.status}</td>
+            <td class="status.${protocol.id}">
+                ${protocol.status}
+
+                <c:if test="${protocol.status eq unpublished}">
+                    <br>
+                    <br>
+
+                    <button value="Approve" class="approve-button btn btn-success btn-small" data-id="${protocol.id}">
+                        <i class="icon-ok-sign icon-white"></i> Approve
+                    </button>
+
+                    <button value="Delete" class="deny-button btn btn-danger btn-small" data-id="${protocol.id}">
+                        <i class="icon-remove-sign icon-white"></i> Deny
+                    </button>
+                </c:if>
+            </td>
             <td>
                 <a href="/protocols/view/${protocol.id}" class="btn btn-success btn-small"><i
                         class="icon-ok icon-white"></i> View</a><br><br>

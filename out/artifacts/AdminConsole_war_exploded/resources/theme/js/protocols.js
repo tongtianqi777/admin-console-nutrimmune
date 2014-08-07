@@ -108,5 +108,51 @@ $(document).ready(function()
                 }
             });
         });
+
+        $(".approve-button").click (function() {
+            var button = $(this);
+            var id = button.attr("data-id");
+
+            button.html("Approving...");
+            $.ajax({
+                url: "/protocols/approve",
+                type: 'POST',
+                data: "id=" + id,
+                context: button,
+                success: function (data) {
+                    if (data == 'success') {
+                        $("tr.data[data-id=" + id + "]").each(function(index, value) {
+                            $('td:eq(4)', this).html("PUBLISHED");
+                            $('td:eq(4)', this).effect('highlight', {color: 'green'}, 1000);
+                        });
+                    } else {
+                        button.html("Approval Failed")
+                    }
+                }
+            });
+        });
+
+        $(".deny-button").click (function() {
+            var button = $(this);
+            var id = button.attr("data-id");
+
+            button.html("Denying...");
+            $.ajax({
+                url: "/protocols/deny",
+                type: 'POST',
+                data: "id=" + id,
+                context: button,
+                success: function (data) {
+                    if (data == 'success') {
+                        $("tr.data[data-id=" + id + "]").each(function(index, value) {
+                            $('td:eq(4)', this).html("DENIED");
+                            $('td:eq(4)', this).effect('highlight', {color: 'red'}, 1000);
+                        });
+                    } else {
+                        button.html("Denial Failed")
+                    }
+                }
+            });
+        });
     }
 );
