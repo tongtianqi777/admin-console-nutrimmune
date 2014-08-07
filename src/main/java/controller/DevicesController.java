@@ -88,6 +88,35 @@ public class DevicesController {
         return "devices";
     }
 
+    @RequestMapping(value = "/activate", method = RequestMethod.POST)
+    public @ResponseBody
+    String activateDevice (@RequestParam("id") int id) {
+        try {
+            deviceDAO.activateDevice(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping(value = "/deactivate", method = RequestMethod.POST)
+    public @ResponseBody
+    String deactivateDevice (@RequestParam("id") int id) {
+        try {
+            deviceDAO.deactivateDevice(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
+
+
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String viewDevice (@PathVariable String id, ModelMap model) {
         Device device = null;

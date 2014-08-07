@@ -87,6 +87,29 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.execute();
     }
 
+    public void activateDevice(Integer device_id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update devices set" +
+                        " status = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, "ACTIVATED");
+        preparedStatement.setInt(2, device_id);
+        preparedStatement.execute();
+    }
+
+    public void deactivateDevice(Integer device_id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update devices set" +
+                        " status = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setString(1, "NOT_ACTIVATED");
+        preparedStatement.setInt(2, device_id);
+        preparedStatement.execute();
+    }
 
 }
 

@@ -20,10 +20,32 @@
             <td><a href="/devices/view/${device.id}">${device.mac}</a></td>
             <td>${device.manufactureDate}</td>
             <td>${device.shipdate}</td>
-            <td>${device.status}</td>
+            <td>${device.status}
+
+                <c:if test="${device.status eq 'NOT_ACTIVATED'}">
+                    <br>
+                    <br>
+
+                    <button value="Activate" class="activate-button btn btn-success btn-small" data-id="${device.id}">
+                        <i class="icon-ok-sign icon-white"></i> Activate
+                    </button>
+                </c:if>
+
+                <c:if test="${device.status eq 'ACTIVATED'}">
+                    <br>
+                    <br>
+
+                    <button value="Deactivate" class="deactivate-button btn btn-danger btn-small"
+                            data-id="${device.id}">
+                        <i class="icon-remove-sign icon-white"></i> Deactivate
+                    </button>
+
+                </c:if>
+
+            </td>
             <td>${device.osbuildrev}</td>
             <td>
-                <select class="selectpicker" data-style="btn-info">
+                <select class="" data-style="btn-info">
                     <c:forEach var="community" items="${communities}">
                         <c:choose>
                             <c:when test="${device.communityId == community.id}">
