@@ -22,7 +22,17 @@
     <div class="row-fluid">
         <div class="span12 text-center">
             <h3>All Devices</h3>
-            <a href="/devices/add" target="_blank">Add New Device</a>
+
+            <c:if test="${not empty success_message}">
+                <div id="output" class="center alert-success">
+                        ${success_message}
+                </div>
+            </c:if>
+
+            <div class="super-right">
+                <a href="/devices/add" class="btn btn-success"><i
+                        class="icon-plus-sign icon-white"></i> Add New Device</a>
+            </div>
             <%@ include file="/WEB-INF/templates/devices_data.jsp" %>
         </div>
     </div>

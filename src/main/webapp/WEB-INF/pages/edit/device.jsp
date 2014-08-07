@@ -1,52 +1,56 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: edwin
-  Date: 8/4/14
-  Time: 11:04 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Edit Device</title>
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Edit Device (ID: ${device.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+
 </head>
 <body>
+<%@ include file="/WEB-INF/layouts/header.jsp" %>
+
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span6 well well-large">
-            <h1>Edit Device (ID: ${device.id})</h1>
-            <form method="POST" action="/devices/update">
-                <fieldset>
-                    <legend>Basic</legend>
+        <div class="span6.center text-center">
+            <div class="border-form-div">
+                <h1>Edit Device (ID: ${device.id})</h1>
 
-                    <input type="hidden" name="id" value="${device.id}">
+                <form method="POST" action="/devices/update">
+                    <fieldset>
+                        <legend>Basic</legend>
 
-                    <label>Mac Address</label>
-                    <input type="text" name="mac" value="${device.mac}">
+                        <input type="hidden" name="id" value="${device.id}">
 
-                    <label>Manufacture Date</label>
-                    <input type="text" name="manufactureDate" value="${device.manufactureDate}">
+                        <label>Mac Address</label>
+                        <input type="text" name="mac" value="${device.mac}">
 
-                    <label>OS Build Rev</label>
-                    <input type="text" name="osbuildrev" value="${device.osbuildrev}">
+                        <label>Manufacture Date</label>
+                        <input type="text" name="manufactureDate" value="${device.manufactureDate}">
 
-                    <label>Owner ID</label>
-                    <input type="text" name="ownerId" value="${device.ownerId}">
+                        <label>OS Build Rev</label>
+                        <input type="text" name="osbuildrev" value="${device.osbuildrev}">
 
-                    <label>Ship Date</label>
-                    <input type="text" name="shipdate" value="${device.shipdate}">
+                        <label>Owner ID</label>
+                        <input type="text" name="ownerId" value="${device.ownerId}">
 
-                    <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
-                    <input type="text" name="status" value="${device.status}">
+                        <label>Ship Date</label>
+                        <input type="text" name="shipdate" value="${device.shipdate}">
 
-                    <div class="alert">
-                        <strong>Warning!</strong> After clicking the update button, the information of this protocol will be overwritten immediately.
-                    </div>
+                        <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
+                        <input type="text" name="status" value="${device.status}">
 
-                    <button class="btn btn-primary btn-large" type="submit">Update Changes</button>
-                </fieldset>
-            </form>
+                        <div class="alert">
+                            <strong>Warning!</strong> After clicking the update button, the information of this protocol
+                            will be overwritten immediately.
+                        </div>
+
+                        <button class="btn btn-primary btn-large" type="submit">Update Changes</button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </div>
 </div>

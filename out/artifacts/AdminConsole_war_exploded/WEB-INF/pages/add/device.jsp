@@ -1,48 +1,67 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: edwin
-  Date: 8/4/14
-  Time: 7:15 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Add New Device</title>
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Add Device</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
 </head>
 <body>
+<%@ include file="/WEB-INF/layouts/header.jsp" %>
+
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span6 well well-large">
-            <h1>Add Device</h1>
-            <form method="POST" action="/devices/add/submit">
-                <fieldset>
-                    <legend>Basic</legend>
+        <div class="span6.center text-center">
+            <div class="border-form-div">
+                <h1>Add Device</h1>
 
-                    <input type="hidden" name="id" value="0 ">
+                <form method="POST" action="/devices/add/submit">
+                    <fieldset>
+                        <legend>Basic</legend>
 
-                    <label>Mac Address</label>
-                    <input type="text" name="mac" value="">
+                        <input type="hidden" name="id" value="0 ">
 
-                    <label>Manufacture Date</label>
-                    <input type="text" name="manufactureDate" value="">
+                        <div class="control-group">
 
-                    <label>OS Build Rev</label>
-                    <input type="text" name="osbuildrev" value="">
+                            <label>Mac Address</label>
+                            <input type="text" name="mac" value="">
+                        </div>
+                        <div class="control-group">
 
-                    <label>Owner ID</label>
-                    <input type="text" name="ownerId" value="">
+                            <label>Manufacture Date</label>
+                            <input type="text" name="manufactureDate" value="">
+                        </div>
+                        <div class="control-group">
 
-                    <label>Ship Date</label>
-                    <input type="text" name="shipdate" value="">
+                            <label>OS Build Rev</label>
+                            <input type="text" name="osbuildrev" value="">
+                        </div>
+                        <div class="control-group">
 
-                    <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
-                    <input type="text" name="status" value="">
 
-                    <button class="btn btn-primary btn-large" type="submit">Add Device</button>
-                </fieldset>
-            </form>
+                            <label>Owner ID</label>
+                            <input type="text" name="ownerId" value="">
+                        </div>
+                        <div class="control-group">
+
+                            <label>Ship Date</label>
+                            <input type="text" name="shipdate" value="">
+                        </div>
+                        <div class="control-group">
+
+                            <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
+                            <input type="text" name="status" value="">
+                        </div>
+                        <div class="control-group">
+
+                            <button class="btn btn-primary btn-success btn-large" type="submit">Add Device</button>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </div>
 </div>

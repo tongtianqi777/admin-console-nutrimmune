@@ -6,9 +6,8 @@
         <th data-placeholder="Try >=28">Protocol ID</th>
         <th data-placeholder="Try *">Protocol</th>
         <th data-placeholder="Try *">Author</th>
-        <th data-placeholder="Try *">Version</th>
         <%--<th data-placeholder="Try *">Community</th>--%>
-        <th data-placeholder="Try >=28">Played</th>
+        <th data-placeholder="Try >=28">Times Played</th>
         <%--<th data-placeholder="Try <=28">Downloaded</th>--%>
         <%--<th data-placeholder="Try =28">Reviews</th>--%>
         <th data-placeholder="Try *">Status</th>
@@ -21,7 +20,6 @@
             <td>${protocol.id}</td>
             <td><a href="/protocols/view/${protocol.id}">${protocol.name}</a></td>
             <td>${protocol.author}</td>
-            <td>1.0</td>
             <td>${protocol.timePlayed}</td>
             <td>${protocol.status}</td>
             <td>

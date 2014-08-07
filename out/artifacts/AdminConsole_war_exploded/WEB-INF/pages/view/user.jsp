@@ -20,76 +20,74 @@
 
                 <h3>View User (ID: ${researcher.id})</h3>
 
-                    <legend>Authentication</legend>
+                <legend>Authentication</legend>
 
-                    <input type="hidden" name="id" value="${researcher.id}">
-                    <div class="control-group">
-                        <label>Username</label>
-                        <input type="text" name="login" value="${researcher.login}">
-                    </div>
-                    <div class="control-group">
-                        <label>Password</label>
-                        <input type="password" name="password" value="${researcher.password}">
-                    </div>
+                <input type="hidden" name="id" value="${researcher.id}">
 
-                    <div class="control-group">
+                <div class="control-group">
+                    <label>Username</label>
+                    <input type="text" name="login" value="${researcher.login}">
+                </div>
+                <div class="control-group">
+                    <label>Password</label>
+                    <input type="password" name="password" value="${researcher.password}">
+                </div>
 
-                        <label>Token</label>
-                        <input type="text" name="token" value="${researcher.token}">
+                <div class="control-group">
 
-                    </div>
-                    <legend>Basic Information</legend>
+                    <label>Token</label>
+                    <input type="text" name="token" value="${researcher.token}">
 
-                    <div class="control-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstname" value="${researcher.firstname}">
-                    </div>
-                    <div class="control-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastname" value="${researcher.lastname}">
-                    </div>
-                    <div class="control-group">
-                        <label>Address</label>
-                        <input type="text" name="address" value="${researcher.address}">
-                    </div>
-                    <div class="control-group">
-                        <label>Country</label>
-                        <input type="text" name="country" value="${researcher.country}">
-                    </div>
-                    <div class="control-group">
-                        <label>Phone</label>
-                        <input type="text" name="phone" value="${researcher.phone}">
-                    </div>
-                    <div class="control-group">
-                        <label>State</label>
-                        <input type="text" name="state" value="${researcher.state}">
-                    </div>
-                    <div class="control-group">
-                        <label>Zip Code</label>
-                        <input type="text" name="zip" value="${researcher.zip}">
-                    </div>
+                </div>
+                <legend>Basic Information</legend>
 
-                    <legend>Operations</legend>
+                <div class="control-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstname" value="${researcher.firstname}">
+                </div>
+                <div class="control-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastname" value="${researcher.lastname}">
+                </div>
+                <div class="control-group">
+                    <label>Address</label>
+                    <input type="text" name="address" value="${researcher.address}">
+                </div>
+                <div class="control-group">
+                    <label>Country</label>
+                    <input type="text" name="country" value="${researcher.country}">
+                </div>
+                <div class="control-group">
+                    <label>Phone</label>
+                    <input type="text" name="phone" value="${researcher.phone}">
+                </div>
+                <div class="control-group">
+                    <label>State</label>
+                    <input type="text" name="state" value="${researcher.state}">
+                </div>
+                <div class="control-group">
+                    <label>Zip Code</label>
+                    <input type="text" name="zip" value="${researcher.zip}">
+                </div>
 
-                    <div class="control-group">
-                        <label>Status</label>
-                        <input type="text" name="status" value="${researcher.status}">
-                    </div>
+                <legend>Operations</legend>
 
-                    <legend>Others</legend>
+                <div class="control-group">
+                    <label>Status</label>
+                    <input type="text" name="status" value="${researcher.status}">
+                </div>
 
-                    <div class="control-group">
-                        <label>Affiliation</label>
-                        <input type="text" name="affiliation" value="${researcher.affiliation}">
-                    </div>
-                    <div class="control-group">
-                        <label>Time Zone</label>
-                        <input type="text" name="timezone" value="${researcher.timezone}">
-                    </div>
-                    <div class="control-group">
-                        <label>Remote</label>
-                        <input type="text" name="remote" value="${researcher.remote}">
-                    </div>
+                <legend>Others</legend>
+
+                <div class="control-group">
+                    <label>Affiliation</label>
+                    <input type="text" name="affiliation" value="${researcher.affiliation}">
+                </div>
+                <div class="control-group">
+                    <label>Time Zone</label>
+                    <input type="text" name="timezone" value="${researcher.timezone}">
+                </div>
+
 
                 <a href="/researcher">Back to Researchers</a>
             </div>

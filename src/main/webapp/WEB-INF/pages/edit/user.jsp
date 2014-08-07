@@ -7,8 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>Edit Protocol (ID: ${protocol.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
-
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/protocols.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/layouts/header.jsp" %>

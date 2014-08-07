@@ -70,6 +70,10 @@ public class DevicesController {
                 return "add/fail";
             }
             deviceDAO.update(form);
+            model.addAttribute("devices", deviceDAO.getAllDevices());
+            model.addAttribute("communities", communityDAO.getCommunities());
+            model.addAttribute("success_message", "You successfully updated the entity.\n");
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,7 +84,7 @@ public class DevicesController {
             return "edit/fail";
         }
 
-        return "edit/success";
+        return "devices";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -181,6 +185,20 @@ public class DevicesController {
             model.addAttribute("info", "A problem occurred when we tried to update the database. Please verify the data fulfills the requirement.");
             return "import/failed";
         }
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody
+    String deleteDevice (@RequestParam("id") int id) {
+        try {
+            deviceDAO.delete(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
     }
 
     private static CellProcessor[] getProcessors() {

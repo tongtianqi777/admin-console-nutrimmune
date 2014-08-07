@@ -77,6 +77,17 @@ public class AdminDeviceDAO extends DeviceDAO {
     }
 
 
+    public void delete(int id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "delete from devices" +
+                        " where id = ?;"
+        );
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+    }
+
+
 }
 
 

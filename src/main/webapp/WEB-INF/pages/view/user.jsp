@@ -87,7 +87,7 @@
                     <label>Time Zone</label>
                     <input type="text" name="timezone" value="${researcher.timezone}">
                 </div>
-                    
+
 
                 <a href="/researcher">Back to Researchers</a>
             </div>

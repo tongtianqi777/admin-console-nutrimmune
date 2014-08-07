@@ -16,7 +16,7 @@
     <tbody>
     <c:forEach var="user" items="${users}">
         <tr class="data" data-id="${user.id}">
-            <td><a href="/researcher/view/${user.id}" target="_blank">${user.firstname} ${user.lastname}</a></td>
+            <td><a href="/researcher/view/${user.id}">${user.firstname} ${user.lastname}</a></td>
             <td>${user.address}</td>
             <td>${user.country}</td>
             <td>${user.phone}</td>
