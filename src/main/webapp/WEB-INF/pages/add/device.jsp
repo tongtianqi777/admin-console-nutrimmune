@@ -17,7 +17,7 @@
             <div class="border-form-div">
                 <h1>Add Device</h1>
 
-                <form method="POST" action="/devices/add/submit">
+                <form class="form-horizontal" method="POST" action="/devices/add/submit">
                     <fieldset>
                         <legend>Basic</legend>
 

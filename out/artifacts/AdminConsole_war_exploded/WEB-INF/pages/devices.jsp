@@ -13,6 +13,8 @@
     <title>All Devices</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
 
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="//silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/devices.js"></script>
 </head>
 <body>

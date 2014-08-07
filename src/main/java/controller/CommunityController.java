@@ -48,12 +48,17 @@ public class CommunityController {
     public String updateCommunity (@ModelAttribute("community") Community form, ModelMap model) {
         try {
             dao.update(form);
+            List<Community> communities = dao.getCommunities();
+            model.addAttribute("communities", communities);
+            model.addAttribute("success_message", "You successfully updated the entity.\n");
+
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "edit/fail";
         }
 
-        return "edit/success";
+        return "community";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

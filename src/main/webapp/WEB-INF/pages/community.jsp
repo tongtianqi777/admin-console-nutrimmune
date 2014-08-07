@@ -21,7 +21,17 @@
     <div class="row-fluid">
         <div class="span12 text-center">
             <h3>All Communities</h3>
-            <a href="/community/add">Add a Community</a>
+
+            <c:if test="${not empty success_message}">
+                <div id="output" class="center alert-success">
+                        ${success_message}
+                </div>
+            </c:if>
+
+            <div class="super-right">
+                <a href="/community/add" class="btn btn-success"><i
+                        class="icon-plus-sign icon-white"></i> Add New Community</a>
+            </div>
             <%@ include file="/WEB-INF/templates/community_data.jsp" %>
         </div>
     </div>

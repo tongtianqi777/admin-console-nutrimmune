@@ -8,6 +8,7 @@
         <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
         <th data-placeholder="Try 1/1/2014">Shipping Date</th>
         <th data-placeholder="Try *">Status</th>
+        <th data-placeholder="Try >1">OS Build Rev</th>
         <th data-placeholder="" class="filter-false">Community</th>
         <th data-placeholder="" class="filter-false">Operations</th>
     </tr>
@@ -16,17 +17,21 @@
     <c:forEach var="device" items="${devices}">
         <tr class="data" data-id="${device.id}">
             <td>${device.id}</td>
-            <td><a href="/devices/edit/${device.id}">${device.mac}</a></td>
+            <td><a href="/devices/view/${device.id}">${device.mac}</a></td>
             <td>${device.manufactureDate}</td>
             <td>${device.shipdate}</td>
             <td>${device.status}</td>
+            <td>${device.osbuildrev}</td>
             <td>
-                <select>
+                <select class="selectpicker" data-style="btn-info">
                     <c:forEach var="community" items="${communities}">
                         <c:choose>
                             <c:when test="${device.communityId == community.id}">
-                                {community.name}
+                                <option value="${community.id}" selected>${community.name}</option>
                             </c:when>
+                            <c:otherwise>
+                                <option value="${community.id}">${community.name}</option>
+                            </c:otherwise>
                         </c:choose>
                     </c:forEach>
                 </select>

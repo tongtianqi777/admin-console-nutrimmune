@@ -19,7 +19,15 @@
             <td>${community.description}</td>
             <td>3</td>
             <td>10</td>
-            <td><button value="Delete" class="delete-button" data-id="${community.id}">Delete</button></td>
+            <td>
+                <a href="/community/view/${device.id}" class="btn btn-success btn-small"><i
+                        class="icon-ok icon-white"></i> View</a><br><br>
+                <a href="/community/edit/${device.id}" class="btn btn-warning btn-small"><i
+                        class="icon-edit icon-white"></i> Edit</a><br><br>
+                <button value="Delete" class="delete-button btn btn-danger btn-small" data-id="${community.id}">
+                    <i class="icon-remove icon-white"></i> Delete
+                </button>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
