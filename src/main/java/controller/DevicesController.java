@@ -2,7 +2,6 @@ package controller;
 
 import com.ntm.postgres.Device;
 import com.ntm.postgres.DeviceStatus;
-import com.ntm.postgres.Protocol;
 import controller.forms.DeviceForm;
 import model.daos.AdminDeviceDAO;
 import model.daos.CommunityDAO;
@@ -163,6 +162,9 @@ public class DevicesController {
             }
 
             deviceDAO.add(form);
+            model.addAttribute("devices", deviceDAO.getAllDevices());
+            model.addAttribute("communities", communityDAO.getCommunities());
+            model.addAttribute("success_message", "You successfully created the entity.\n");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -173,7 +175,7 @@ public class DevicesController {
             return "edit/fail";
         }
 
-        return "add/success";
+        return "devices";
     }
 
     private boolean valid(DeviceForm form) {
