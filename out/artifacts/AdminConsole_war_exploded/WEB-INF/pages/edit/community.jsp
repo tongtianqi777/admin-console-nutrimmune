@@ -18,7 +18,7 @@
             <div class="border-form-div">
                 <h1>Edit Community (ID: ${community.id})</h1>
 
-                <form method="POST" action="/community/update">
+                <form class="form-horizontal" method="POST" action="/community/update">
                     <fieldset>
                         <legend>Basic</legend>
 

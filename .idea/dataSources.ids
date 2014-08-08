@@ -2350,6 +2350,7 @@
       <column name="owner_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="shipdate" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
       <column name="status" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12" def="J0luYWN0aXZlJw=="/>
+      <column name="community_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <primary-key name="devices_pkey" columns="id"/>
       <foreign-key name="devices_owner_id_fkey" columns="owner_id" ref-table="users" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>

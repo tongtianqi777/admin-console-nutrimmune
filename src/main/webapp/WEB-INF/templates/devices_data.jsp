@@ -3,13 +3,12 @@
 <table id="devices" class="tablesorter">
     <thead>
     <tr>
-        <th data-placeholder="Try >=33">ID</th>
+        <th data-placeholder="" class="filter-false">ID</th>
         <th data-placeholder="Try *">Mac Address</th>
         <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
         <th data-placeholder="Try 1/1/2014">Shipping Date</th>
         <th data-placeholder="Try *">Status</th>
-        <th data-placeholder="Try >1">OS Build Rev</th>
-        <th data-placeholder="" class="filter-false">Community</th>
+        <th data-placeholder="Try *">View / Change Community</th>
         <th data-placeholder="" class="filter-false">Operations</th>
     </tr>
     </thead>
@@ -43,9 +42,8 @@
                 </c:if>
 
             </td>
-            <td>${device.osbuildrev}</td>
             <td>
-                <select class="" data-style="btn-info">
+                <select class="community_changer" data-id="${device.id}" data-style="btn-info">
                     <c:forEach var="community" items="${communities}">
                         <c:choose>
                             <c:when test="${device.communityId == community.id}">

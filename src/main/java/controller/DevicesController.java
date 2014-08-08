@@ -52,6 +52,8 @@ public class DevicesController {
 
         try {
             device = deviceDAO.getDevice(id);
+            model.addAttribute("communities", communityDAO.getCommunities());
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,6 +109,20 @@ public class DevicesController {
     String deactivateDevice (@RequestParam("id") int id) {
         try {
             deviceDAO.deactivateDevice(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed";
+        }
+
+        return "success";
+    }
+
+    @RequestMapping(value = "/changeCommunity", method = RequestMethod.POST)
+    public @ResponseBody
+    String changeCommunityId (@RequestParam("id") int id, @RequestParam("community") int c_id) {
+        try {
+            deviceDAO.changeCommunityID(id, c_id);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -111,6 +111,17 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.execute();
     }
 
+    public void changeCommunityID(Integer device_id, Integer community_id) throws SQLException {
+        connection = ConnectionFactory.getConnection();
+        preparedStatement = connection.prepareStatement(
+                "update devices set" +
+                        " community_id = ?" +
+                        " where id = ?;"
+        );
+        preparedStatement.setInt(1, community_id);
+        preparedStatement.setInt(2, device_id);
+        preparedStatement.execute();
+    }
 }
 
 

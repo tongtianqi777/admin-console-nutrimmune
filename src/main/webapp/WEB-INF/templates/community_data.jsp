@@ -3,10 +3,10 @@
 <table id="communities" class="tablesorter tablesorter-blue">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Community Name</th>
-        <th>Description</th>
-        <th>Operations</th>
+        <th data-placeholder="Try >=33">ID</th>
+        <th data-placeholder="Try *">Community Name</th>
+        <th data-placeholder="Try *">Description</th>
+        <th data-placeholder="" class="filter-false">Operations</th>
     </tr>
     </thead>
     <tbody>

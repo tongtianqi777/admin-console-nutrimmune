@@ -45,7 +45,11 @@ $(document).ready(function () {
 
                 // add custom filter functions using this option
                 // see the filter widget custom demo for more specifics on how to use this option
-                filter_functions: null,
+                filter_functions: {
+                    6 : function(e, n, f, i, $r) {
+                        return e === f;
+                    }
+                },
 
                 // if true, filters are collapsed initially, but can be revealed by hovering over the grey bar immediately
                 // below the header row. Additionally, tabbing through the document will open the filter row when an input gets focus
@@ -64,7 +68,7 @@ $(document).ready(function () {
                 filter_reset: 'button.reset',
 
                 // Use the $.tablesorter.storage utility to save the most recent filters (default setting is false)
-                filter_saveFilters: true,
+                filter_saveFilters: false,
 
                 // Delay in milliseconds before the filter widget starts searching; This option prevents searching for
                 // every character while typing and should make searching large tables faster.
@@ -158,6 +162,22 @@ $(document).ready(function () {
                         button.html("Deactivation Failed")
                     }
                 }
+            });
+        });
+
+        $("select.community_changer").on('change', function() {
+            var selector = $(this);
+            var id = selector.attr("data-id");
+            var community_id = this.value;
+
+            console.log(community_id);
+
+            $.ajax({
+                url: "/devices/changeCommunity",
+                type: 'POST',
+                data: {id: id, community: community_id },
+                dataType: 'json',
+                context: selector
             });
         });
     }
