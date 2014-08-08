@@ -122,6 +122,8 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.setInt(2, device_id);
         preparedStatement.execute();
     }
+
+
 }
 
 

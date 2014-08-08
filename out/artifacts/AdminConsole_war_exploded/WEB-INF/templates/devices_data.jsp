@@ -8,7 +8,7 @@
         <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
         <th data-placeholder="Try 1/1/2014">Shipping Date</th>
         <th data-placeholder="Try *">Status</th>
-        <th data-placeholder="Try *">View / Change Community</th>
+        <th data-placeholder="" class="filter-false">View / Change Community</th>
         <th data-placeholder="" class="filter-false">Operations</th>
     </tr>
     </thead>

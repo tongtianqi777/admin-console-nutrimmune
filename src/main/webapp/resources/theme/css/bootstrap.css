@@ -6854,3 +6854,9 @@ legend {
 .affix {
     position: fixed;
 }
+
+.center2 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
