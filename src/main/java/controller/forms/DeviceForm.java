@@ -6,7 +6,6 @@ public class DeviceForm {
     private String mac;
     private String manufactureDate;
     private int osbuildrev;
-    private int ownerId;
     private String shipdate;
     private String status;
 
@@ -40,14 +39,6 @@ public class DeviceForm {
 
     public void setOsbuildrev(int osbuildrev) {
         this.osbuildrev = osbuildrev;
-    }
-
-    public int getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
     }
 
     public String getShipdate() {

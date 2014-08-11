@@ -39,7 +39,6 @@ public class AdminDeviceDAO extends DeviceDAO {
                         " mac = ?," +
                         " manufacturedate = ?," +
                         " osbuildrev = ?," +
-                        " owner_id = ?," +
                         " shipdate = ?," +
                         " status = ?" +
                         " where id = ?;"
@@ -47,10 +46,9 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.setString(1, form.getMac());
         preparedStatement.setDate(2, DataTypeUtils.stringToSqlDate(form.getManufactureDate()));
         preparedStatement.setInt(3, form.getOsbuildrev());
-        preparedStatement.setInt(4, form.getOwnerId());
-        preparedStatement.setDate(5, DataTypeUtils.stringToSqlDate(form.getShipdate()));
-        preparedStatement.setString(6, form.getStatus());
-        preparedStatement.setInt(7, form.getId());
+        preparedStatement.setDate(4, DataTypeUtils.stringToSqlDate(form.getShipdate()));
+        preparedStatement.setString(5, form.getStatus());
+        preparedStatement.setInt(6, form.getId());
 
         preparedStatement.execute();
     }
@@ -58,8 +56,7 @@ public class AdminDeviceDAO extends DeviceDAO {
     public void add(DeviceForm form) throws SQLException, ParseException {
         connection = ConnectionFactory.getConnection();
         preparedStatement = connection.prepareStatement(
-                "insert into devices (mac, manufacturedate, osbuildrev, owner_id, shipdate, status) values (" +
-                        " ?," +
+                "insert into devices (mac, manufacturedate, osbuildrev, shipdate, status) values (" +
                         " ?," +
                         " ?," +
                         " ?," +
@@ -70,9 +67,8 @@ public class AdminDeviceDAO extends DeviceDAO {
         preparedStatement.setString(1, form.getMac());
         preparedStatement.setDate(2, DataTypeUtils.stringToSqlDate(form.getManufactureDate()));
         preparedStatement.setInt(3, form.getOsbuildrev());
-        preparedStatement.setInt(4, form.getOwnerId());
-        preparedStatement.setDate(5, DataTypeUtils.stringToSqlDate(form.getShipdate()));
-        preparedStatement.setString(6, form.getStatus());
+        preparedStatement.setDate(4, DataTypeUtils.stringToSqlDate(form.getShipdate()));
+        preparedStatement.setString(5, form.getStatus());
         preparedStatement.execute();
     }
 

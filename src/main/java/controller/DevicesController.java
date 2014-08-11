@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -155,12 +156,12 @@ public class DevicesController {
 
     @RequestMapping(value = "/add/submit", method = RequestMethod.POST)
     public String addDevice (DeviceForm form, ModelMap model) {
+        boolean error = false;
         try {
             if (!valid(form)) {
                 System.out.println("Device information is not valid.");
                 return "add/fail";
             }
-
             deviceDAO.add(form);
             model.addAttribute("devices", deviceDAO.getAllDevices());
             model.addAttribute("communities", communityDAO.getCommunities());
@@ -172,7 +173,7 @@ public class DevicesController {
 
         } catch (ParseException e) {
             e.printStackTrace();
-            return "edit/fail";
+            return "add/fail";
         }
 
         return "devices";
@@ -180,8 +181,18 @@ public class DevicesController {
 
     private boolean valid(DeviceForm form) {
         try {
+            //check if the status is valid
             DeviceStatus.valueOf(form.getStatus());
+
+            //check if the date strings are valid
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            dateFormat.parse(form.getManufactureDate());
+            dateFormat.parse(form.getShipdate());
+
         } catch (RuntimeException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ParseException e) {
             e.printStackTrace();
             return false;
         }

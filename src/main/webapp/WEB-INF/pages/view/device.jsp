@@ -23,19 +23,16 @@
 
                         <input type="hidden" name="id" value="${device.id}">
 
-                        <label>Mac Address</label>
+                        <label>Mac Address (Format: 12:34:56:78:90:xy)</label>
                         <input type="text" name="mac" value="${device.mac}">
 
-                        <label>Manufacture Date</label>
+                        <label>Manufacture Date (yyyy-mm-dd)</label>
                         <input type="text" name="manufactureDate" value="${device.manufactureDate}">
 
-                        <label>OS Build Rev</label>
+                        <label>OS Build Rev (Integer Number)</label>
                         <input type="text" name="osbuildrev" value="${device.osbuildrev}">
 
-                        <label>Owner ID</label>
-                        <input type="text" name="ownerId" value="${device.ownerId}">
-
-                        <label>Ship Date</label>
+                        <label>Ship Date (yyyy-mm-dd)</label>
                         <input type="text" name="shipdate" value="${device.shipdate}">
 
                         <label>Status (Can either be "ACTIVATED" or "NOT_ACTIVATED")</label>
