@@ -1,6 +1,5 @@
 package controller;
 
-import com.ntm.postgres.Protocol;
 import com.ntm.postgres.UserCollabServer;
 import controller.forms.ResearcherForm;
 import model.daos.AdminUserDAO;
@@ -110,20 +109,17 @@ public class ResearcherController {
                 "login",
                 "address",
                 "affiliation",
-                "phone",
                 "country",
                 "firstname",
-                "lastlogin",
                 "lastname",
                 "password",
-                "state",
-                "timezone",
-                "zip",
-                "role",
-                "token",
-                "expiry",
+                "phone",
                 "remote",
-                "status"
+                "state",
+                "status",
+                "timezone",
+                "token",
+                "zip"
         };
 
         csvWriter.writeHeader(header);
@@ -166,22 +162,19 @@ public class ResearcherController {
         final CellProcessor[] processors = new CellProcessor[]{
                 new NotNull(new ParseInt()), // id (must be unique)
                 new NotNull(), // login
-                new NotNull(), // address
-                new NotNull(), // affiliation
-                new NotNull(), // phone
-                new NotNull(), // country
-                new NotNull(), // firstname
-                new Optional(), // lastlogin
+                new Optional(), // address
+                new Optional(), // affiliation
+                new Optional(), // country
+                new Optional(), // firstname
                 new Optional(), // lastname
-                new Optional(), // password
+                new NotNull(), // password
+                new Optional(), // phone
+                new Optional(), // remote
                 new Optional(), // state
+                new NotNull(), // status
                 new Optional(), // timezone
-                new Optional(new ParseInt()), // zip
-                new NotNull(), //role
-                new NotNull(), // token
-                new NotNull(), // expiry
-                new NotNull(), // remote
-                new NotNull() // status
+                new Optional(), // token
+                new Optional(new ParseInt()) // zip
         };
 
         return processors;

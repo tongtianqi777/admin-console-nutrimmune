@@ -8,6 +8,7 @@
             <li><a href="/devices">Devices</a></li>
             <li><a href="/community">Communities</a></li>
             <li><a href="/system">System</a></li>
+            <a class="btn btn-danger" href="/logout" >Logout</a>
         </ul>
     </div>
 </div>

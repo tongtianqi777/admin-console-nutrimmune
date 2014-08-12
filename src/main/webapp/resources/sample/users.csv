@@ -1,3 +1,2 @@
-id,username,password,deviceId,status,firstname,lastname,address,country,phone,state,zip,lastlogin
-1,john@mail.com,secret1,1,Active,John,Smith,5000 Forbes Ave,US,4127373303,PA,15213,2014-07-13 22:47:11.84
-2,mary@look.com,secret2,1,Active,Mary,Shawn,5000 Forbes Ave,US,911,PA,15213,2014-07-15 00:16:35.608
+id,login,address,affiliation,country,firstname,lastname,password,phone,remote,state,status,timezone,token,zip
+1,se@cmu.com,5000 forbes ave,Nutrimmune Technologies,USA,Tianqi,Tong,nutrimmune,412 999 9999,remotestring,pa,active,est,haha,15213

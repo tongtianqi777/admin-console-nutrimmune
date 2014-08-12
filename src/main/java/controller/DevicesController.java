@@ -221,9 +221,9 @@ public class DevicesController {
                 "mac",
                 "manufactureDate",
                 "osbuildrev",
-                "ownerId",
                 "shipdate",
-                "status"
+                "status",
+                "communityId"
         };
 
         csvWriter.writeHeader(header);
@@ -283,9 +283,9 @@ public class DevicesController {
                 new NotNull(), // mac
                 new NotNull(new ParseDate("yyyy-MM-dd")), // manufactureDate
                 new NotNull(new ParseInt()), // osbuildrev
-                new NotNull(new ParseInt()), // ownerId
                 new NotNull(new ParseDate("yyyy-MM-dd")), // shipdate
-                new NotNull() // status
+                new NotNull(), // status
+                new NotNull(new ParseInt()) // communityId
         };
 
         return processors;

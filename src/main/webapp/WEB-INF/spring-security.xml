@@ -27,7 +27,7 @@
                 password-parameter="password"
                 login-processing-url="/security"
                 />
-        <logout logout-success-url="/login" />
+        <logout logout-url="/logout" logout-success-url="/login" />
         <!-- enable csrf protection -->
         <!--<csrf/>-->
     </http>

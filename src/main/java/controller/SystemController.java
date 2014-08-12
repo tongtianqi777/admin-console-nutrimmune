@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/system")
 public class SystemController {
 
-    public static final String USER_CSV_PATH = "/users/allcsv";
+    public static final String USER_CSV_PATH = "/researcher/allcsv";
     public static final String DEVICE_CSV_PATH = "/devices/allcsv";
     public static final String PROTOCOL_CSV_PATH = "/protocols/allcsv";
 
-    public static final String USER_IMPORT_PATH = "/users/importcsv";
+    public static final String USER_IMPORT_PATH = "/researcher/importcsv";
     public static final String DEVICE_IMPORT_PATH = "/devices/importcsv";
     public static final String PROTOCOL_IMPORT_PATH = "/protocols/importcsv";
 
-    public static final String USER_SAMPLE_PATH = "/sample/users.csv";
+    public static final String USER_SAMPLE_PATH = "/sample/researchers.csv";
     public static final String DEVICE_SAMPLE_PATH = "/sample/devices.csv";
     public static final String PROTOCOL_SAMPLE_PATH = "/sample/protocols.csv";
 

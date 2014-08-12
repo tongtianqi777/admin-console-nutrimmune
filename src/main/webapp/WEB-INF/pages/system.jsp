@@ -58,14 +58,6 @@
                     <br>
                     <a href="${device_sample_path}">Import File Example</a>
                 </div>
-                <div class="well">
-                    <h3>Protocols</h3>
-                    <a class="btn btn-large btn-primary" href="${protocol_csv_path}">Export to file</a>
-                    <a class="btn btn-large btn-primary" href="/system/import?cate=protocol" target="_blank">Import from
-                        file..</a>
-                    <br>
-                    <a href="${protocol_sample_path}">Import File Example</a>
-                </div>
             </div>
         </div>
     </div>

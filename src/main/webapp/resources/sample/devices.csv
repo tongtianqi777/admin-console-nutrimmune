@@ -1,3 +1,2 @@
-id,mac,manuAddr,manuDate,shipDate,ownerName,status,communityId
-1,00:00:00:00:00:00,California,2014-07-08,2014-07-08,Tianqi Tong,Active,1
-2,11:11:11:11:11:11,Reston Virginia,2014-07-08,2014-07-08,John Smith,Active,1
+id,mac,manufactureDate,osbuildrev,shipdate,status,communityId
+1,aa:bb:cc:dd:ee:ff,1989-05-27,0,1990-08-26,ACTIVATED,0

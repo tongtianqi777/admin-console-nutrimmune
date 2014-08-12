@@ -1,6 +1,7 @@
 package controller;
 
 import model.beans.admin.Community;
+import model.daos.AdminDeviceDAO;
 import model.daos.CommunityDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,6 +15,7 @@ import java.util.List;
 public class CommunityController {
 
     CommunityDAO dao = new CommunityDAO();
+    AdminDeviceDAO deviceDAO = new AdminDeviceDAO();
 
     @RequestMapping(method = RequestMethod.GET)
     public String render(ModelMap model) {
@@ -64,6 +66,7 @@ public class CommunityController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public @ResponseBody String deleteCommunity (@RequestParam("id") int id) {
         try {
+            deviceDAO.removeCommunity(id);
             dao.delete(id);
 
         } catch (SQLException e) {
