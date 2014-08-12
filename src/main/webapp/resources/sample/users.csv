@@ -1,2 +1,2 @@
 id,login,address,affiliation,country,firstname,lastname,password,phone,remote,state,status,timezone,token,zip
-1,se@cmu.com,5000 forbes ave,Nutrimmune Technologies,USA,Tianqi,Tong,nutrimmune,412 999 9999,remotestring,pa,active,est,haha,15213
+1,se@cmu.com,300 S Craig,Nutrimmune Technologies,USA,Tianqi,Tong,nutrimmune,412 999 9999,remotestring,PA,active,est,tokensample,15213
