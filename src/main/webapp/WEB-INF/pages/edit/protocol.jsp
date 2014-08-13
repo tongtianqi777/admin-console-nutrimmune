@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>Edit Protocol (ID: ${protocol.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+    <link href="${pageContext.request.contextPath}/resources/css/item-detail.css" rel="stylesheet" >
 
 </head>
 <body>
@@ -14,7 +15,7 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span6.center text-center">
+        <div class="span10.center text-center">
             <div class="border-form-div">
 
                 <h3>Edit Protocol (ID: ${protocol.id})</h3>

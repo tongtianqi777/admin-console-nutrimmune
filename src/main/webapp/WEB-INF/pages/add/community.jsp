@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>Add New Community</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+    <link href="${pageContext.request.contextPath}/resources/css/item-detail.css" rel="stylesheet" >
+
 </head>
 <body>
 <%@ include file="/WEB-INF/layouts/header.jsp" %>

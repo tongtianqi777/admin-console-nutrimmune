@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>All Protocols</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+    <link href="${pageContext.request.contextPath}/resources/css/protocols.css" rel="stylesheet" >
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/protocols.js"></script>
 </head>

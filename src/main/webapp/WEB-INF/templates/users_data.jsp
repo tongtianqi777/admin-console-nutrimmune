@@ -24,12 +24,9 @@
             <td>${user.status}</td>
 
             <td>
-                <a href="/researcher/view/${user.id}" class="btn btn-success btn-small"><i
-                        class="icon-ok icon-white"></i> View</a><br><br>
-                <a href="/researcher/edit/${user.id}" class="btn btn-warning btn-small"><i
-                        class="icon-edit icon-white"></i> Edit</a><br><br>
+                <a href="/researcher/edit/${user.id}" class="btn btn-warning btn-small"> Edit</a>
                 <button value="Delete" class="delete-button btn btn-danger btn-small" data-id="${user.id}">
-                    <i class="icon-remove icon-white"></i> Delete
+                    Delete
                 </button>
             </td>
         </tr>

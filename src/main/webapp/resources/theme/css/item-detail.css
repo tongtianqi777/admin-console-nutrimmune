@@ -1,0 +1,13 @@
+
+textarea {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+.border-form-div {
+    max-width: 1024px;
+    width: 80%;
+}

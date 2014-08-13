@@ -13,6 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>All Devices</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+    <link href="${pageContext.request.contextPath}/resources/css/devices.css" rel="stylesheet" >
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/devices.js"></script>
 </head>

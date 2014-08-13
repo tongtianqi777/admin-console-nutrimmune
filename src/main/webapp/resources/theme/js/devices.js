@@ -126,7 +126,7 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data == 'success') {
                         $("tr.data[data-id=" + id + "]").each(function (index, value) {
-                            $('td:eq(4)', this).html("ACTIVATED  <br><br> <button value='Deactivate' class='deactivate-button btn btn-danger btn-small' data-id=" + id + "><i class='icon-remove-sign icon-white'></i> Deactivate</button>");
+                            $('td:eq(4)', this).html("ACTIVATED <button value='Deactivate' class='deactivate-button btn btn-danger btn-small' data-id=" + id + "><i class='icon-remove-sign icon-white'></i> Deactivate</button>");
                             var s = document.createElement("script");
                             s.type = "text/javascript";
                             s.src = "../resources/js/devices.js";
@@ -152,7 +152,7 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data == 'success') {
                         $("tr.data[data-id=" + id + "]").each(function (index, value) {
-                            $('td:eq(4)', this).html("NOT_ACTIVATED <br> <br> <button value='Activate' class='activate-button btn btn-success btn-small' data-id=" + id + "><i class='icon-ok-sign icon-white'></i> Activate</button>");
+                            $('td:eq(4)', this).html("NOT_ACTIVATED <button value='Activate' class='activate-button btn btn-success btn-small' data-id=" + id + "><i class='icon-ok-sign icon-white'></i> Activate</button>");
                             var s = document.createElement("script");
                             s.type = "text/javascript";
                             s.src = "../resources/js/devices.js";
