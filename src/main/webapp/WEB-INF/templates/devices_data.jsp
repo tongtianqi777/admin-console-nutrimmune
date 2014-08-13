@@ -5,8 +5,8 @@
     <tr>
         <th data-placeholder="" class="filter-false">ID</th>
         <th data-placeholder="Try *">Mac Address</th>
-        <th data-placeholder="Try 1/1/2014">Manufacture Date</th>
-        <th data-placeholder="Try 1/1/2014">Shipping Date</th>
+        <th data-placeholder="Try 2014-1-1">Manufacture Date</th>
+        <th data-placeholder="Try 2014-1-1">Shipping Date</th>
         <th data-placeholder="Try *" class="status">Status</th>
         <th data-placeholder="" class="filter-false community">View / Change Community</th>
         <th data-placeholder="" class="filter-false operations">Operations</th>

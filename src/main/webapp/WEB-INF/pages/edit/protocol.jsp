@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label>Status</label>
+                        <label>Status (PUBLISHED / UNPUBLISHED / DENIED / UPLOADED / DELETED)</label>
                         <input type="text" name="status" value="${protocol.status}">
                     </div>
 

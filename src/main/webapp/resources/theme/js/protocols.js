@@ -122,7 +122,7 @@ $(document).ready(function()
                 success: function (data) {
                     if (data == 'success') {
                         $("tr.data[data-id=" + id + "]").each(function(index, value) {
-                            $('td:eq(4)', this).html("PUBLISHED");
+                            $('td:eq(5)', this).html("PUBLISHED");
                         });
                     } else {
                         button.html("Approval Failed")
@@ -144,7 +144,7 @@ $(document).ready(function()
                 success: function (data) {
                     if (data == 'success') {
                         $("tr.data[data-id=" + id + "]").each(function(index, value) {
-                            $('td:eq(4)', this).html("DENIED");
+                            $('td:eq(5)', this).html("DENIED");
                         });
                     } else {
                         button.html("Denial Failed")

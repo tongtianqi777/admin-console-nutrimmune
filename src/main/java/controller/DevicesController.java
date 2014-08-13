@@ -163,17 +163,28 @@ public class DevicesController {
                 return "add/fail";
             }
             deviceDAO.add(form);
-            model.addAttribute("devices", deviceDAO.getAllDevices());
-            model.addAttribute("communities", communityDAO.getCommunities());
-            model.addAttribute("success_message", "You successfully created the entity.\n");
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return "add/fail";
+            model.addAttribute("success_message", "There was a failure when adding the device. Please make sure the data format is correct and the mac address does not exist on server.\n");
+            error = true;
 
         } catch (ParseException e) {
+            model.addAttribute("success_message", "There was a failure when adding the device. Please make sure the data format is correct.\n");
             e.printStackTrace();
-            return "add/fail";
+            error = true;
+        }
+
+        try {
+            model.addAttribute("devices", deviceDAO.getAllDevices());
+            model.addAttribute("communities", communityDAO.getCommunities());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            error = true;
+        }
+
+        if (!error) {
+            model.addAttribute("success_message", "You successfully created the entity.\n");
         }
 
         return "devices";

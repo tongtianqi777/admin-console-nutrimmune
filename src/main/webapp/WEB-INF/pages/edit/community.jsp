@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html">
     <title>Edit Community (ID: ${community.id})</title>
     <%@ include file="/WEB-INF/templates/resources.jsp" %>
+    <link href="${pageContext.request.contextPath}/resources/css/item-detail.css" rel="stylesheet" >
 
 </head>
 <body>

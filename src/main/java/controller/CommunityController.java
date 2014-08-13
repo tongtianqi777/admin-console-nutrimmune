@@ -91,7 +91,7 @@ public class CommunityController {
             return "add/fail";
         }
 
-        return "add/success";
+        return "redirect:/community";
     }
 
 

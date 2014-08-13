@@ -16,13 +16,8 @@
             <td>${community.name}</td>
             <td>${community.description}</td>
             <td>
-                <a href="/community/view/${community.id}" class="btn btn-success btn-small"><i
-                        class="icon-ok icon-white"></i> View</a><br><br>
-                <a href="/community/edit/${community.id}" class="btn btn-warning btn-small"><i
-                        class="icon-edit icon-white"></i> Edit</a><br><br>
-                <button value="Delete" class="delete-button btn btn-danger btn-small" data-id="${community.id}">
-                    <i class="icon-remove icon-white"></i> Delete
-                </button>
+                <a href="/community/edit/${community.id}" class="btn btn-warning btn-small">Edit</a>
+                <button value="Delete" class="delete-button btn btn-danger btn-small" data-id="${community.id}">Delete</button>
             </td>
         </tr>
     </c:forEach>
